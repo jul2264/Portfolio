@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { SkillItem } from '@/lib/types';
-import { getBrandIconData } from '@/lib/brandIcons';
+import { getBrandIconConfig } from '@/lib/brandIcons';
 import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
 
@@ -20,7 +20,8 @@ export function SkillBox({ skill, index }: SkillBoxProps) {
   }, []);
 
   const isDark = !mounted || theme !== 'light';
-  const brandData = getBrandIconData(skill.icon, isDark);
+  const brandConfig = getBrandIconConfig(skill.icon);
+  const accentTextColor = index % 2 === 0 ? 'text-accentBlue' : 'text-accentGreen';
 
   return (
     <motion.div
@@ -28,20 +29,14 @@ export function SkillBox({ skill, index }: SkillBoxProps) {
       whileInView={{ opacity: 1, scale: 1, y: 0 }}
       viewport={{ once: true, margin: '-40px' }}
       transition={{ duration: 0.3, delay: index * 0.04 }}
-      whileHover={{ y: -5, scale: 1.03 }}
-      className="group relative p-4 rounded-xl bg-surface/80 backdrop-blur-md border border-borderSubtle hover:border-accentBlue/60 hover:shadow-[0_0_20px_rgba(76,183,255,0.18)] transition-all duration-300 overflow-hidden cursor-pointer flex items-center justify-between"
+      whileHover={{ y: -4, scale: 1.02 }}
+      className="group relative p-3.5 sm:p-4 rounded-2xl bg-surface/75 backdrop-blur-md border border-borderSubtle hover:border-accentBlue/60 hover:shadow-[0_0_20px_rgba(76,183,255,0.18)] transition-all duration-300 overflow-hidden cursor-pointer flex items-center justify-between"
     >
-      {/* Official Transparent Brand Icon + Skill Name */}
+      {/* Left Small Container Box with Official Untinted App Logo */}
       <div className="flex items-center gap-3.5 relative z-10">
-        {/* Official Company App Icon (Untinted Original Brand Color) */}
-        <div className="w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center shrink-0">
-          <svg
-            viewBox="0 0 24 24"
-            className="w-full h-full transition-transform duration-300 group-hover:scale-110"
-            style={{ fill: brandData.brandColor }}
-          >
-            <path d={brandData.path} />
-          </svg>
+        {/* Small Container Box */}
+        <div className="w-10 h-10 rounded-xl bg-surface/90 border border-borderSubtle/80 flex items-center justify-center p-2 shrink-0 shadow-sm group-hover:border-accentBlue/40 transition-colors">
+          {brandConfig.renderLeftLogo(isDark)}
         </div>
 
         {/* Skill Name */}
@@ -50,13 +45,12 @@ export function SkillBox({ skill, index }: SkillBoxProps) {
         </span>
       </div>
 
-      {/* Transparent Background Watermark Icon */}
+      {/* Right Official Watermark Logo (Tinted in Green / Blue Accent) */}
       <svg
         viewBox="0 0 24 24"
-        className="absolute -right-3 -bottom-3 w-16 h-16 opacity-[0.07] group-hover:opacity-25 group-hover:scale-110 transition-all duration-300 pointer-events-none"
-        style={{ fill: brandData.brandColor }}
+        className={`absolute -right-3 -bottom-3 w-16 h-16 fill-current ${accentTextColor} opacity-[0.08] group-hover:opacity-25 group-hover:scale-110 transition-all duration-300 pointer-events-none`}
       >
-        <path d={brandData.path} />
+        <path d={brandConfig.watermarkPath} />
       </svg>
     </motion.div>
   );
