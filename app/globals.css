@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+@layer base {
+  [data-theme='dark'], :root {
+    --bg-primary: #1B1D22;
+    --surface-card: #252932;
+    --surface-glass: rgba(37, 41, 50, 0.75);
+    --accent-blue: #4CB7FF;
+    --accent-green: #A8F36D;
+    --secondary-blue: #6AD7FF;
+    --text-primary: #F3F7FB;
+    --text-muted: #AAB3C2;
+    --border-subtle: rgba(120, 180, 255, 0.18);
+  }
+
+  [data-theme='light'] {
+    --bg-primary: #F8FAFC;
+    --surface-card: #FFFFFF;
+    --surface-glass: rgba(255, 255, 255, 0.88);
+    --accent-blue: #0284C7;
+    --accent-green: #16A34A;
+    --secondary-blue: #0369A1;
+    --text-primary: #0F172A;
+    --text-muted: #475569;
+    --border-subtle: rgba(14, 165, 233, 0.22);
+  }
+}
+
+@theme {
+  --color-bgPrimary: var(--bg-primary);
+  --color-surface: var(--surface-glass);
+  --color-accentBlue: var(--accent-blue);
+  --color-accentGreen: var(--accent-green);
+  --color-secondaryBlue: var(--secondary-blue);
+  --color-textPrimary: var(--text-primary);
+  --color-textMuted: var(--text-muted);
+  --color-borderSubtle: var(--border-subtle);
+
+  --font-sans: var(--font-sans), system-ui, sans-serif;
+  --font-mono: var(--font-mono), monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}

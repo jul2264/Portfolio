@@ -1,0 +1,72 @@
+{
+  "personal": {
+    "name": "Julian Steve Anban",
+    "title": "Computer Science Student | Full Stack Developer | Cybersecurity Enthusiast",
+    "phone": "8217288418",
+    "email": "julianstevenj@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/juliansteve",
+    "github": "https://github.com/jul2264",
+    "location": "Chennai, Tamil Nadu / Bangalore, Karnataka",
+    "specializations": ["Full Stack", "Security", "System Design", "Product Engineering"]
+  },
+  "education": [
+    {
+      "institution": "SRM University",
+      "degree": "Bachelor of Technology in Computer Science",
+      "grade": "CGPA: 8.66",
+      "period": "Aug. 2024 – May 2028",
+      "location": "Chennai, Tamil Nadu",
+      "year": "2024 - Present"
+    },
+    {
+      "institution": "Euroschool",
+      "degree": "CBSE, Class 12",
+      "grade": "75.4%",
+      "period": "Aug. 2023 – May 2024",
+      "location": "Bangalore, Karnataka",
+      "year": "2023 - 2024"
+    },
+    {
+      "institution": "Ryan International School",
+      "degree": "ICSE, Class 10",
+      "grade": "83.3%",
+      "period": "Aug. 2021 – May 2022",
+      "location": "Bangalore, Karnataka",
+      "year": "2021 - 2022"
+    }
+  ],
+  "experience": [
+    {
+      "role": "Cyber Security Intern",
+      "company": "Talenciaglobal",
+      "location": "Chennai, Tamil Nadu",
+      "period": "December 2025 – March 2026",
+      "highlights": [
+        "Contributed to the development of a cyber security product and performing vulnerability identification and security assessment across the platform",
+        "Mapped identified vulnerabilities to OWASP standards and maintained structured security assessment documentation",
+        "Performed basic reverse engineering and binary analysis using Radare2, packet-level traffic analysis using Wireshark, and used SQLMap to assist in vulnerability identification"
+      ],
+      "tools": ["OWASP", "Radare2", "Wireshark", "SQLMap"]
+    }
+  ],
+  "leadership": [
+    {
+      "role": "Creative Lead",
+      "organization": "L’Atelier Français",
+      "period": "November 2025 – Present",
+      "location": "Chennai, Tamil Nadu",
+      "highlights": [
+        "Directed design and development of branding materials — club lanyards, event posters, and promotional content by coordinating with organizers to deliver visual assets for multiple campus initiatives"
+      ]
+    },
+    {
+      "role": "Creative Member",
+      "organization": "Placvs",
+      "period": "September 2025 – Present",
+      "location": "Chennai, Tamil Nadu",
+      "highlights": [
+        "Spearheaded design of promotional assets for flagship college events (Internship Fair 3.0, Prayatna), coordinating with cross-functional teams under deadline to ensure consistent visual communication"
+      ]
+    }
+  ]
+}

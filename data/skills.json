@@ -1,0 +1,37 @@
+{
+  "languages": [
+    { "name": "Python", "icon": "python", "category": "Languages" },
+    { "name": "Go", "icon": "go", "category": "Languages" },
+    { "name": "Java", "icon": "java", "category": "Languages" },
+    { "name": "C++", "icon": "cplusplus", "category": "Languages" },
+    { "name": "C", "icon": "c", "category": "Languages" },
+    { "name": "JavaScript", "icon": "javascript", "category": "Languages" },
+    { "name": "TypeScript", "icon": "typescript", "category": "Languages" },
+    { "name": "HTML5", "icon": "html5", "category": "Languages" },
+    { "name": "CSS3", "icon": "css3", "category": "Languages" },
+    { "name": "SQL", "icon": "mysql", "category": "Languages" }
+  ],
+  "frameworks": [
+    { "name": "React", "icon": "react", "category": "Frameworks" },
+    { "name": "Next.js", "icon": "nextjs", "category": "Frameworks" },
+    { "name": "Django REST", "icon": "django", "category": "Frameworks" },
+    { "name": "Node.js", "icon": "nodejs", "category": "Frameworks" }
+  ],
+  "developerTools": [
+    { "name": "MySQL", "icon": "mysql", "category": "Developer Tools" },
+    { "name": "Redis", "icon": "redis", "category": "Developer Tools" },
+    { "name": "Docker", "icon": "docker", "category": "Developer Tools" },
+    { "name": "Git", "icon": "git", "category": "Developer Tools" },
+    { "name": "Linux", "icon": "linux", "category": "Developer Tools" },
+    { "name": "Vercel", "icon": "vercel", "category": "Developer Tools" },
+    { "name": "Meilisearch", "icon": "search", "category": "Developer Tools" },
+    { "name": "Clerk", "icon": "shield-check", "category": "Developer Tools" }
+  ],
+  "securityTools": [
+    { "name": "Wireshark", "icon": "network", "category": "Security Tools" },
+    { "name": "Burp Suite", "icon": "shield-alert", "category": "Security Tools" },
+    { "name": "Ghidra", "icon": "binary", "category": "Security Tools" },
+    { "name": "SQLMap", "icon": "database", "category": "Security Tools" },
+    { "name": "Radare2", "icon": "terminal", "category": "Security Tools" }
+  ]
+}
