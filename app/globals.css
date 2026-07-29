@@ -36,16 +36,19 @@
   --color-textMuted: var(--text-muted);
   --color-borderSubtle: var(--border-subtle);
 
-  --font-sans: var(--font-sans), system-ui, sans-serif;
-  --font-mono: var(--font-mono), monospace;
+  --font-sans: var(--font-noto-mono), "Noto Sans Mono", monospace;
+  --font-mono: var(--font-noto-mono), "Noto Sans Mono", monospace;
 }
 
 html {
   scroll-behavior: smooth;
+  font-family: var(--font-noto-mono), "Noto Sans Mono", monospace;
 }
 
 body {
+  font-family: var(--font-noto-mono), "Noto Sans Mono", monospace;
   background-color: var(--bg-primary);
   color: var(--text-primary);
   transition: background-color 0.3s ease, color 0.3s ease;
+  font-optical-sizing: auto;
 }

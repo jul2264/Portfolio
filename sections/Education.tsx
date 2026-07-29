@@ -2,72 +2,96 @@
 
 import { motion } from 'framer-motion';
 import { resumeData } from '@/lib/data';
-import { GraduationCap, Calendar, MapPin, Award } from 'lucide-react';
-import { GlassCard } from '@/components/ui/GlassCard';
+import { Calendar, MapPin, Award } from 'lucide-react';
+
+const accentColors = [
+  { border: 'border-accentGreen/70', bar: 'bg-accentGreen', text: 'text-accentGreen' },
+  { border: 'border-accentBlue/70', bar: 'bg-accentBlue', text: 'text-accentBlue' },
+  { border: 'border-accentBlue/50', bar: 'bg-accentBlue', text: 'text-accentBlue' },
+];
 
 export function EducationSection() {
-  // Chronological timeline order (Ryan International 2021 -> Euroschool 2023 -> SRM University 2024)
-  const timelineData = [...resumeData.education].reverse();
+  const educationList = resumeData.education;
 
   return (
-    <section id="education" className="py-20 px-4 max-w-5xl mx-auto z-10 relative">
-      <motion.div
-        initial={{ opacity: 0, x: 30 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true, margin: '-100px' }}
-        transition={{ duration: 0.6 }}
-      >
-        {/* Section Heading */}
-        <div className="flex items-center gap-3 mb-12">
-          <span className="font-mono text-accentGreen text-sm font-semibold">02.</span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-textPrimary">Education History</h2>
-          <div className="h-px bg-borderSubtle flex-1 max-w-xs" />
-        </div>
+    <section id="education" className="pt-4 pb-12 px-4 max-w-5xl mx-auto z-10 relative">
+      <div className="space-y-4">
+        {/* Section Heading with Bi-Directional Entrance */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="flex items-center justify-between border-b border-borderSubtle/60 pb-2 mb-4"
+        >
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-textPrimary tracking-tight">
+            Education
+          </h2>
+        </motion.div>
 
-        {/* Vertical Timeline Container */}
-        <div className="relative pl-6 sm:pl-10 border-l-2 border-borderSubtle/60 space-y-10">
-          {timelineData.map((item, idx) => (
-            <motion.div
-              key={item.institution}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.15, duration: 0.4 }}
-              className="relative group"
-            >
-              {/* Animated Glowing Node Marker */}
-              <div className="absolute -left-[31px] sm:-left-[47px] top-1.5 w-6 h-6 rounded-full bg-surface border-2 border-accentBlue group-hover:border-accentGreen group-hover:scale-125 transition-all duration-300 flex items-center justify-center shadow-[0_0_10px_rgba(76,183,255,0.4)]">
-                <div className="w-2 h-2 rounded-full bg-accentBlue group-hover:bg-accentGreen transition-colors" />
-              </div>
-
-              {/* Card Container */}
-              <GlassCard
-                accent={idx % 2 === 0 ? 'blue' : 'green'}
-                className="p-6 transition-all"
+        {/* Bi-Directional Animated Cards (Smooth Forwards & Backwards Scroll) */}
+        <div className="space-y-4">
+          {educationList.map((item, idx) => {
+            const colors = accentColors[idx] ?? accentColors[1];
+            return (
+              <motion.div
+                key={item.institution}
+                initial={{ opacity: 0, y: 32, scale: 0.98 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: false, amount: 0.25 }}
+                transition={{
+                  duration: 0.65,
+                  delay: idx * 0.1,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                className={`relative flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-surface/80 backdrop-blur-xl border ${colors.border} rounded-2xl p-5 sm:p-6 group hover:bg-surface transition-colors duration-300 shadow-md`}
               >
-                <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-accentBlue/10 border border-accentBlue/30 text-accentBlue text-xs font-mono font-semibold">
-                    <Calendar className="w-3.5 h-3.5" /> {item.year}
-                  </span>
-                  <span className="flex items-center gap-1 text-xs text-textMuted font-mono">
-                    <MapPin className="w-3.5 h-3.5 text-accentGreen" /> {item.location}
-                  </span>
+                {/* Bi-Directional Left Accent Bar */}
+                <motion.div
+                  className={`absolute left-0 top-4 bottom-4 w-[3.5px] rounded-full ${colors.bar}`}
+                  initial={{ scaleY: 0 }}
+                  whileInView={{ scaleY: 1 }}
+                  viewport={{ once: false, amount: 0.5 }}
+                  transition={{ duration: 0.5, delay: idx * 0.1 + 0.15, ease: [0.22, 1, 0.36, 1] }}
+                  style={{ transformOrigin: 'top' }}
+                />
+
+                {/* LEFT: Institution, Degree, Location */}
+                <div className="space-y-1 pl-3">
+                  <h3 className={`text-xl sm:text-2xl font-extrabold text-textPrimary group-hover:${colors.text} transition-colors duration-200`}>
+                    {item.institution}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-textMuted font-mono flex flex-wrap items-center gap-2">
+                    <span className="text-textPrimary font-semibold">{item.degree}</span>
+                    {item.syllabus && (
+                      <>
+                        <span className="text-borderSubtle">•</span>
+                        <span className={colors.text}>{item.syllabus}</span>
+                      </>
+                    )}
+                  </p>
+                  <p className="text-xs sm:text-sm text-textMuted font-mono flex items-center gap-1">
+                    <MapPin className="w-3.5 h-3.5 text-accentGreen shrink-0" />
+                    <span>{item.location}</span>
+                  </p>
                 </div>
 
-                <h3 className="text-xl font-bold text-textPrimary flex items-center gap-2 mb-1">
-                  <GraduationCap className="w-5 h-5 text-accentBlue" />
-                  {item.institution}
-                </h3>
-                <p className="text-sm font-semibold text-textMuted mb-2">{item.degree}</p>
-
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-surface/80 border border-borderSubtle text-xs font-mono text-accentGreen">
-                  <Award className="w-3.5 h-3.5" /> Grade: {item.grade}
+                {/* RIGHT: Year & Grade */}
+                <div className="sm:text-right space-y-1 shrink-0 border-t sm:border-t-0 border-borderSubtle/40 pt-2 sm:pt-0 pl-3 sm:pl-0">
+                  <div className="text-sm font-extrabold font-mono text-textPrimary flex sm:justify-end items-center gap-2">
+                    <Calendar className="w-4 h-4 text-accentBlue" />
+                    <span>{item.year}</span>
+                  </div>
+                  <div className={`text-sm font-extrabold font-mono ${colors.text} flex sm:justify-end items-center gap-2`}>
+                    <Award className={`w-4 h-4 ${colors.text}`} />
+                    <span>Grade : {item.grade}</span>
+                  </div>
                 </div>
-              </GlassCard>
-            </motion.div>
-          ))}
+              </motion.div>
+            );
+          })}
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }

@@ -1,249 +1,93 @@
 import React from 'react';
 import * as SimpleIcons from 'simple-icons';
 import {
-  PythonLogo,
-  JavaScriptLogo,
-  TypeScriptLogo,
-  HTML5Logo,
-  CSS3Logo,
-  MySQLLogo,
-  JavaLogo,
-  ReactLogo,
-  GoLogo,
-  DockerLogo,
-  GitLogo,
-  LinuxLogo,
+  ClerkLogo,
+  GhidraLogo,
+  SqlmapLogo,
+  Radare2Logo,
 } from './officialLogos';
 
 export interface BrandIconConfig {
   title: string;
   renderLeftLogo: (isDark: boolean) => React.ReactNode;
   watermarkPath: string;
+  getWatermarkColor: (isDark: boolean) => string;
+  viewBox?: string;
 }
 
 const GHIDRA_PATH =
-  'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z';
+  'M250 14c-130 0-236 106-236 236s106 236 236 236 236-106 236-236S380 14 250 14zm-20 446c-115 0-210-85-210-200 0-75 40-130 100-165 35 45 75 60 120 40-45 45-30 95-20 120 40 20 80 0 110-35 25 45 15 90-25 120 60-25 80-70 65-130 35 65 15 115-5 165-35 50-85 80-150 80z';
 const SQLMAP_PATH =
-  'M4 3h16a1 1 0 011 1v4a1 1 0 01-1 1H4a1 1 0 01-1-1V4a1 1 0 011-1zm0 7h16a1 1 0 011 1v4a1 1 0 01-1 1H4a1 1 0 01-1-1v-4a1 1 0 011-1zm0 7h16a1 1 0 011 1v4a1 1 0 01-1 1H4a1 1 0 01-1-1v-4a1 1 0 011-1z';
+  'M20 70h40v40H20V70zm40 0h40v40H60V70zm80 0h40v40h-40V70zm40 0h40v40h-40V70zm40 0h40v40h-40V70zM120 30h30M135 30v110M120 140h30';
 const RADARE2_PATH =
-  'M12 2L2 7v10l10 5 10-5V7L12 2zm0 2.8L19 8v8l-7 3.5L5 16V8l7-3.2zM9 10v4l6-2-6-2z';
+  'M45 43c-12 0-22 10-22 22s10 22 22 22h17v45h38V43H45zm130 2l-60 37 60 38V45zm80 0l-60 37 60 38V45z';
+
+// Helper to render consistent official SVG path for both left box & right watermark
+function createStandardBrandConfig(
+  title: string,
+  path: string,
+  colorFn: (isDark: boolean) => string,
+  customRender?: (isDark: boolean) => React.ReactNode,
+  viewBox = '0 0 24 24'
+): BrandIconConfig {
+  return {
+    title,
+    watermarkPath: path,
+    getWatermarkColor: colorFn,
+    viewBox,
+    renderLeftLogo: (isDark: boolean) =>
+      customRender ? (
+        customRender(isDark)
+      ) : (
+        <svg
+          viewBox={viewBox}
+          className="w-5 h-5 sm:w-6 sm:h-6"
+          style={{ fill: colorFn(isDark) }}
+        >
+          <path d={path} />
+        </svg>
+      ),
+  };
+}
 
 const brandConfigMap: Record<string, BrandIconConfig> = {
-  python: {
-    title: 'Python',
-    renderLeftLogo: () => <PythonLogo className="w-5 h-5 sm:w-6 sm:h-6" />,
-    watermarkPath: SimpleIcons.siPython.path,
-  },
-  javascript: {
-    title: 'JavaScript',
-    renderLeftLogo: () => <JavaScriptLogo className="w-5 h-5 sm:w-6 sm:h-6" />,
-    watermarkPath: SimpleIcons.siJavascript.path,
-  },
-  typescript: {
-    title: 'TypeScript',
-    renderLeftLogo: () => <TypeScriptLogo className="w-5 h-5 sm:w-6 sm:h-6" />,
-    watermarkPath: SimpleIcons.siTypescript.path,
-  },
-  html5: {
-    title: 'HTML5',
-    renderLeftLogo: () => <HTML5Logo className="w-5 h-5 sm:w-6 sm:h-6" />,
-    watermarkPath: SimpleIcons.siHtml5.path,
-  },
-  css3: {
-    title: 'CSS3',
-    renderLeftLogo: () => <CSS3Logo className="w-5 h-5 sm:w-6 sm:h-6" />,
-    watermarkPath: SimpleIcons.siCss.path,
-  },
-  sql: {
-    title: 'SQL',
-    renderLeftLogo: () => <MySQLLogo className="w-5 h-5 sm:w-6 sm:h-6" />,
-    watermarkPath: SimpleIcons.siMysql.path,
-  },
-  mysql: {
-    title: 'MySQL',
-    renderLeftLogo: () => <MySQLLogo className="w-5 h-5 sm:w-6 sm:h-6" />,
-    watermarkPath: SimpleIcons.siMysql.path,
-  },
-  java: {
-    title: 'Java',
-    renderLeftLogo: () => <JavaLogo className="w-5 h-5 sm:w-6 sm:h-6" />,
-    watermarkPath: SimpleIcons.siOpenjdk.path,
-  },
-  react: {
-    title: 'React',
-    renderLeftLogo: () => <ReactLogo className="w-5 h-5 sm:w-6 sm:h-6" />,
-    watermarkPath: SimpleIcons.siReact.path,
-  },
-  go: {
-    title: 'Go',
-    renderLeftLogo: () => <GoLogo className="w-5 h-5 sm:w-6 sm:h-6" />,
-    watermarkPath: SimpleIcons.siGo.path,
-  },
-  docker: {
-    title: 'Docker',
-    renderLeftLogo: () => <DockerLogo className="w-5 h-5 sm:w-6 sm:h-6" />,
-    watermarkPath: SimpleIcons.siDocker.path,
-  },
-  git: {
-    title: 'Git',
-    renderLeftLogo: () => <GitLogo className="w-5 h-5 sm:w-6 sm:h-6" />,
-    watermarkPath: SimpleIcons.siGit.path,
-  },
-  linux: {
-    title: 'Linux',
-    renderLeftLogo: () => <LinuxLogo className="w-5 h-5 sm:w-6 sm:h-6" />,
-    watermarkPath: SimpleIcons.siLinux.path,
-  },
-  cplusplus: {
-    title: 'C++',
-    renderLeftLogo: () => (
-      <svg viewBox="0 0 24 24" className="w-5 h-5 sm:w-6 sm:h-6 fill-[#00599C]">
-        <path d={SimpleIcons.siCplusplus.path} />
-      </svg>
-    ),
-    watermarkPath: SimpleIcons.siCplusplus.path,
-  },
-  c: {
-    title: 'C',
-    renderLeftLogo: () => (
-      <svg viewBox="0 0 24 24" className="w-5 h-5 sm:w-6 sm:h-6 fill-[#A8B9CC]">
-        <path d={SimpleIcons.siC.path} />
-      </svg>
-    ),
-    watermarkPath: SimpleIcons.siC.path,
-  },
-  nextjs: {
-    title: 'Next.js',
-    renderLeftLogo: (isDark) => (
-      <svg
-        viewBox="0 0 24 24"
-        className="w-5 h-5 sm:w-6 sm:h-6"
-        style={{ fill: isDark ? '#FFFFFF' : '#000000' }}
-      >
-        <path d={SimpleIcons.siNextdotjs.path} />
-      </svg>
-    ),
-    watermarkPath: SimpleIcons.siNextdotjs.path,
-  },
-  django: {
-    title: 'Django REST',
-    renderLeftLogo: (isDark) => (
-      <svg
-        viewBox="0 0 24 24"
-        className="w-5 h-5 sm:w-6 sm:h-6"
-        style={{ fill: isDark ? '#44B78B' : '#092E20' }}
-      >
-        <path d={SimpleIcons.siDjango.path} />
-      </svg>
-    ),
-    watermarkPath: SimpleIcons.siDjango.path,
-  },
-  nodejs: {
-    title: 'Node.js',
-    renderLeftLogo: () => (
-      <svg viewBox="0 0 24 24" className="w-5 h-5 sm:w-6 sm:h-6 fill-[#5FA04E]">
-        <path d={SimpleIcons.siNodedotjs.path} />
-      </svg>
-    ),
-    watermarkPath: SimpleIcons.siNodedotjs.path,
-  },
-  redis: {
-    title: 'Redis',
-    renderLeftLogo: () => (
-      <svg viewBox="0 0 24 24" className="w-5 h-5 sm:w-6 sm:h-6 fill-[#FF4438]">
-        <path d={SimpleIcons.siRedis.path} />
-      </svg>
-    ),
-    watermarkPath: SimpleIcons.siRedis.path,
-  },
-  vercel: {
-    title: 'Vercel',
-    renderLeftLogo: (isDark) => (
-      <svg
-        viewBox="0 0 24 24"
-        className="w-5 h-5 sm:w-6 sm:h-6"
-        style={{ fill: isDark ? '#FFFFFF' : '#000000' }}
-      >
-        <path d={SimpleIcons.siVercel.path} />
-      </svg>
-    ),
-    watermarkPath: SimpleIcons.siVercel.path,
-  },
-  search: {
-    title: 'Meilisearch',
-    renderLeftLogo: () => (
-      <svg viewBox="0 0 24 24" className="w-5 h-5 sm:w-6 sm:h-6 fill-[#FF5CAA]">
-        <path d={SimpleIcons.siMeilisearch.path} />
-      </svg>
-    ),
-    watermarkPath: SimpleIcons.siMeilisearch.path,
-  },
-  'shield-check': {
-    title: 'Clerk',
-    renderLeftLogo: () => (
-      <svg viewBox="0 0 24 24" className="w-5 h-5 sm:w-6 sm:h-6 fill-[#6C47FF]">
-        <path d={SimpleIcons.siClerk.path} />
-      </svg>
-    ),
-    watermarkPath: SimpleIcons.siClerk.path,
-  },
-  network: {
-    title: 'Wireshark',
-    renderLeftLogo: () => (
-      <svg viewBox="0 0 24 24" className="w-5 h-5 sm:w-6 sm:h-6 fill-[#1679A7]">
-        <path d={SimpleIcons.siWireshark.path} />
-      </svg>
-    ),
-    watermarkPath: SimpleIcons.siWireshark.path,
-  },
-  'shield-alert': {
-    title: 'Burp Suite',
-    renderLeftLogo: () => (
-      <svg viewBox="0 0 24 24" className="w-5 h-5 sm:w-6 sm:h-6 fill-[#FF6633]">
-        <path d={SimpleIcons.siBurpsuite.path} />
-      </svg>
-    ),
-    watermarkPath: SimpleIcons.siBurpsuite.path,
-  },
-  binary: {
-    title: 'Ghidra',
-    renderLeftLogo: () => (
-      <svg viewBox="0 0 24 24" className="w-5 h-5 sm:w-6 sm:h-6 fill-[#EF4444]">
-        <path d={GHIDRA_PATH} />
-      </svg>
-    ),
-    watermarkPath: GHIDRA_PATH,
-  },
-  database: {
-    title: 'SQLMap',
-    renderLeftLogo: () => (
-      <svg viewBox="0 0 24 24" className="w-5 h-5 sm:w-6 sm:h-6 fill-[#E11D48]">
-        <path d={SQLMAP_PATH} />
-      </svg>
-    ),
-    watermarkPath: SQLMAP_PATH,
-  },
-  terminal: {
-    title: 'Radare2',
-    renderLeftLogo: () => (
-      <svg viewBox="0 0 24 24" className="w-5 h-5 sm:w-6 sm:h-6 fill-[#8B5CF6]">
-        <path d={RADARE2_PATH} />
-      </svg>
-    ),
-    watermarkPath: RADARE2_PATH,
-  },
+  python: createStandardBrandConfig('Python', SimpleIcons.siPython.path, () => '#3776AB'),
+  javascript: createStandardBrandConfig('JavaScript', SimpleIcons.siJavascript.path, () => '#F7DF1E'),
+  typescript: createStandardBrandConfig('TypeScript', SimpleIcons.siTypescript.path, () => '#3178C6'),
+  html5: createStandardBrandConfig('HTML5', SimpleIcons.siHtml5.path, () => '#E34F26'),
+  css3: createStandardBrandConfig('CSS3', SimpleIcons.siCss.path, () => '#1572B6'),
+  sql: createStandardBrandConfig('SQL', SimpleIcons.siMysql.path, () => '#4479A1'),
+  mysql: createStandardBrandConfig('MySQL', SimpleIcons.siMysql.path, () => '#4479A1'),
+  java: createStandardBrandConfig('Java', SimpleIcons.siOpenjdk.path, () => '#E76F00'),
+  react: createStandardBrandConfig('React', SimpleIcons.siReact.path, () => '#61DAFB'),
+  go: createStandardBrandConfig('Go', SimpleIcons.siGo.path, () => '#00ADD8'),
+  docker: createStandardBrandConfig('Docker', SimpleIcons.siDocker.path, () => '#2496ED'),
+  git: createStandardBrandConfig('Git', SimpleIcons.siGit.path, () => '#F03C2E'),
+  linux: createStandardBrandConfig('Linux', SimpleIcons.siLinux.path, () => '#FCC624'),
+  cplusplus: createStandardBrandConfig('C++', SimpleIcons.siCplusplus.path, () => '#00599C'),
+  nextjs: createStandardBrandConfig('Next.js', SimpleIcons.siNextdotjs.path, (isDark) =>
+    isDark ? '#FFFFFF' : '#000000'
+  ),
+  django: createStandardBrandConfig('Django REST', SimpleIcons.siDjango.path, (isDark) =>
+    isDark ? '#44B78B' : '#092E20'
+  ),
+  nodejs: createStandardBrandConfig('Node.js', SimpleIcons.siNodedotjs.path, () => '#5FA04E'),
+  redis: createStandardBrandConfig('Redis', SimpleIcons.siRedis.path, () => '#FF4438'),
+  vercel: createStandardBrandConfig('Vercel', SimpleIcons.siVercel.path, (isDark) =>
+    isDark ? '#FFFFFF' : '#000000'
+  ),
+  search: createStandardBrandConfig('Meilisearch', SimpleIcons.siMeilisearch.path, () => '#FF2E93'),
+  'shield-check': createStandardBrandConfig('Clerk', SimpleIcons.siClerk.path, () => '#6C47FF', (isDark) => <ClerkLogo className="w-5 h-5 sm:w-6 sm:h-6" isDark={isDark} />),
+  network: createStandardBrandConfig('Wireshark', SimpleIcons.siWireshark.path, () => '#1679A7'),
+  'shield-alert': createStandardBrandConfig('Burp Suite', SimpleIcons.siBurpsuite.path, () => '#FF6633'),
+  binary: createStandardBrandConfig('Ghidra', GHIDRA_PATH, () => '#EF4444', () => <GhidraLogo className="w-5 h-5 sm:w-6 sm:h-6" />, '0 0 500 500'),
+  database: createStandardBrandConfig('SQLMap', SQLMAP_PATH, () => '#EAB308', () => <SqlmapLogo className="w-5 h-5 sm:w-6 sm:h-6" />, '0 0 320 160'),
+  terminal: createStandardBrandConfig('Radare2', RADARE2_PATH, (isDark) => isDark ? '#FFFFFF' : '#111827', (isDark) => <Radare2Logo className="w-5 h-5 sm:w-6 sm:h-6" isDark={isDark} />, '0 0 300 160'),
 };
 
 export function getBrandIconConfig(iconSlug: string): BrandIconConfig {
   return (
-    brandConfigMap[iconSlug] || {
-      title: 'Code',
-      renderLeftLogo: () => (
-        <svg viewBox="0 0 24 24" className="w-5 h-5 sm:w-6 sm:h-6 fill-[#4CB7FF]">
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" />
-        </svg>
-      ),
-      watermarkPath: 'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z',
-    }
+    brandConfigMap[iconSlug] ||
+    createStandardBrandConfig('Code', 'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z', () => '#4CB7FF')
   );
 }

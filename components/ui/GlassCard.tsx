@@ -19,9 +19,9 @@ export function GlassCard({
 }: GlassCardProps) {
   const accentGlowClass =
     accent === 'blue'
-      ? 'hover:border-accentBlue/50 hover:shadow-[0_0_25px_rgba(76,183,255,0.18)]'
+      ? 'hover:border-accentBlue/50'
       : accent === 'green'
-      ? 'hover:border-accentGreen/50 hover:shadow-[0_0_25px_rgba(168,243,109,0.18)]'
+      ? 'hover:border-accentGreen/50'
       : 'hover:border-accentBlue/30';
 
   return (

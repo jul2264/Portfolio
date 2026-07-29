@@ -3,7 +3,7 @@
     "name": "Julian Steve Anban",
     "title": "Computer Science Student | Full Stack Developer | Cybersecurity Enthusiast",
     "phone": "8217288418",
-    "email": "julianstevenj@gmail.com",
+    "email": "juliansteve.anban@gmail.com",
     "linkedin": "https://www.linkedin.com/in/juliansteve",
     "github": "https://github.com/jul2264",
     "location": "Chennai, Tamil Nadu / Bangalore, Karnataka",
@@ -13,6 +13,7 @@
     {
       "institution": "SRM University",
       "degree": "Bachelor of Technology in Computer Science",
+      "syllabus": "Computer Science & Engineering",
       "grade": "CGPA: 8.66",
       "period": "Aug. 2024 – May 2028",
       "location": "Chennai, Tamil Nadu",
@@ -20,7 +21,8 @@
     },
     {
       "institution": "Euroschool",
-      "degree": "CBSE, Class 12",
+      "degree": "Class 12",
+      "syllabus": "CBSE Board",
       "grade": "75.4%",
       "period": "Aug. 2023 – May 2024",
       "location": "Bangalore, Karnataka",
@@ -28,7 +30,8 @@
     },
     {
       "institution": "Ryan International School",
-      "degree": "ICSE, Class 10",
+      "degree": "Class 10",
+      "syllabus": "ICSE Board",
       "grade": "83.3%",
       "period": "Aug. 2021 – May 2022",
       "location": "Bangalore, Karnataka",

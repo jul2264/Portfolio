@@ -20,15 +20,15 @@ import {
 } from 'lucide-react';
 
 export function ProjectsSection() {
-  const [activeProject, setActiveProject] = useState<string>(projectsData[0].id);
+  const [activeProject, setActiveProject] = useState<string>(projectsData[0]?.id || 'flock');
 
   return (
     <section id="projects" className="py-20 px-4 max-w-7xl mx-auto z-10 relative">
       <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true, margin: '-100px' }}
-        transition={{ duration: 0.6 }}
+        initial={{ opacity: 0, y: 32, scale: 0.98 }}
+        whileInView={{ opacity: 1, y: 0, scale: 1 }}
+        viewport={{ once: false, amount: 0.2 }}
+        transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
       >
         {/* Section Heading */}
         <div className="flex items-center gap-3 mb-10">
@@ -41,13 +41,14 @@ export function ProjectsSection() {
         <div className="flex flex-wrap items-center gap-3 mb-10">
           {projectsData.map((project) => (
             <button
-              key={project.id}
+              key={project.id || project.title}
               onClick={() => {
-                setActiveProject(project.id);
-                trackProjectView(project.id);
+                const projId = project.id || '';
+                setActiveProject(projId);
+                trackProjectView(projId);
               }}
               className={`px-5 py-2.5 rounded-xl font-bold text-sm transition-all border flex items-center gap-2 ${
-                activeProject === project.id
+                activeProject === (project.id || '')
                   ? project.accent === 'blue'
                     ? 'bg-accentBlue text-bgPrimary border-accentBlue shadow-[0_0_20px_rgba(76,183,255,0.3)] scale-105'
                     : 'bg-accentGreen text-bgPrimary border-accentGreen shadow-[0_0_20px_rgba(168,243,109,0.3)] scale-105'
@@ -126,7 +127,7 @@ export function ProjectsSection() {
                     Engineering Highlights:
                   </h4>
                   <div className="space-y-3">
-                    {project.keyFeatures.map((feat, i) => (
+                    {(project.keyFeatures || []).map((feat, i) => (
                       <div key={i} className="flex items-start gap-3">
                         <CheckCircle2 className="w-5 h-5 text-accentGreen shrink-0 mt-0.5" />
                         <p className="text-textMuted text-sm sm:text-base leading-relaxed">{feat}</p>

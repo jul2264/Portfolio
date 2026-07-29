@@ -99,23 +99,95 @@ export function MySQLLogo({ className = 'w-6 h-6' }: LogoProps) {
   );
 }
 
-// 7. Java (Official Cup Blue #5382A1 + Steam Red #E76F00)
+// 7. Java (Official Coffee Cup Steam #E76F00 + Saucer Rings #5382A1 - User Image 1)
 export function JavaLogo({ className = 'w-6 h-6' }: LogoProps) {
   return (
-    <svg viewBox="0 0 128 128" className={className}>
+    <svg viewBox="0 0 200 240" className={className}>
+      {/* Orange Steam Curves */}
       <path
         fill="#E76F00"
-        d="M48.8 15.2c-5.2 6.1-2.1 11.7 1.8 17.5 4.5 6.7 4.2 11.6.8 17.3-3.2 5.5-2.2 10.2 2.6 15.1 4.5-4.8 5.7-9.4 2.8-15.1-3.6-7-2.3-11.7 1.9-17.5 4.4-6.1 1.7-11.6-9.9-17.3z"
+        d="M102.4 0C88.6 28.5 119.8 45.7 132.8 65c13.7 20.4 12.8 35.3 2.4 52.8-9.8 16.8-6.7 31.1 8 46.1 13.8-14.7 17.5-28.7 8.6-46.1-11-21.4-7-35.8 5.8-53.5 13.5-18.7 5.2-35.5-30.2-52.6zM68.5 24.3C52.9 44.8 77.2 60.1 87.3 75.9c10.7 16.7 10 28.9 1.9 43.2-7.7 13.7-5.2 25.4 6.2 37.7 10.8-12 13.7-23.5 6.7-37.7-8.6-17.5-5.5-29.3 4.5-43.8 10.5-15.3 4.1-29-23.6-43z"
       />
+      {/* Blue Saucer Rings & Handle */}
       <path
         fill="#5382A1"
-        d="M32 72c0 22 14.3 32 32 32s32-10 32-32H32zm72 4c0-4.4 3.6-8 8-8s8 3.6 8 8-3.6 8-8 8h-8v-8z"
+        d="M32.5 140c-15.2 12.4 5.3 21.6 34.2 26.5 35.8 6 86.8 5.2 108.5-2 15.6-5.2 22.8-12.8 8.1-18.5-14.7-5.7-41.2-8.5-74.8-8.5-35 0-63.5 3.3-76 9.7zm-6.2 34c-14.5 11.5 6.8 20.3 35.5 24.8 37.3 5.8 90.6 4.7 113.2-2.2 16.3-5 23.8-12.2 8.4-17.7-15.3-5.5-43-8.1-78-8.1-36.5 0-66.3 3.1-79.1 9.2zm11.2 33.5c-11.8 9.3 9.4 16.5 36.8 20 35.5 4.5 86.3 3.4 107.8-2 15.5-3.9 22.6-9.6 8-14-14.6-4.4-41-6.5-74.5-6.5-34.8 0-65.7 2.4-78.1 7.2zM155 125c15.2 4.2 33.5 11.5 33.5 23.5 0 17-32.5 27.5-65 31-25 2.7-57.5 1.5-75-3.5 15 7.5 49 11 75 11 48 0 85-12.5 85-33.5 0-14.5-20.5-24.5-53.5-28.5z"
       />
     </svg>
   );
 }
 
-// 8. React (Official Cyan #61DAFB Atom)
+// 8. Ghidra (Official Red Dragon Circle Logo - User Image 2)
+export function GhidraLogo({ className = 'w-6 h-6' }: LogoProps) {
+  return (
+    <svg viewBox="0 0 500 500" className={className}>
+      {/* Outer Black Circle Frame */}
+      <circle cx="250" cy="250" r="236" fill="none" stroke="#111827" strokeWidth="24" />
+      {/* Red Dragon Body Profile */}
+      <path
+        fill="#DC2626"
+        d="M230 460c115 0 210-85 210-200 0-75-40-130-100-165-35 45-75 60-120 40 45 45 30 95-20 120-40 20-80 0-110-35-25 45-15 90 25 120-60-25-80-70-65-130C80 280 60 330 80 380c35 50 85 80 150 80z"
+      />
+      {/* Dragon Head & Snout */}
+      <path
+        fill="#EF4444"
+        d="M120 280c-35-30-40-75-10-120 40-60 110-80 170-60-40-35-90-40-140-10-50 30-70 80-55 135 10 20 22 38 35 55z"
+      />
+      {/* Orange Dragon Tail Accent */}
+      <path
+        fill="#F97316"
+        d="M140 435c75 35 170 30 235-20 40-30 65-75 65-125-35 75-105 130-190 135-40 2-75-5-110-20z"
+      />
+      {/* Binary Bits (10010) coming out of snout */}
+      <text x="75" y="325" fill="#EAB308" fontSize="24" fontFamily="monospace" fontWeight="bold">1 0 0 1</text>
+      <text x="85" y="355" fill="#EAB308" fontSize="22" fontFamily="monospace" fontWeight="bold">0 1 0</text>
+    </svg>
+  );
+}
+
+// 9. SQLMap (Official Terminal Banner Logo - User Image 3)
+export function SqlmapLogo({ className = 'w-6 h-6' }: LogoProps) {
+  return (
+    <svg viewBox="0 0 320 160" className={className}>
+      {/* Yellow ASCII Text Border & Letter Outlines */}
+      <path
+        fill="none"
+        stroke="#EAB308"
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M20 70h40v40H20V70zm40 0h40v40H60V70zm80 0h40v40h-40V70zm40 0h40v40h-40V70zm40 0h40v40h-40V70zM120 30h30M135 30v110M120 140h30"
+      />
+      {/* Central Red Highlight Banner */}
+      <rect x="123" y="42" width="24" height="76" fill="#DC2626" rx="3" />
+      {/* White/Yellow Inner Bracket Characters ["] [)] ['] */}
+      <text x="127" y="60" fill="#FEF08A" fontSize="16" fontFamily="monospace" fontWeight="bold">"</text>
+      <text x="127" y="85" fill="#FEF08A" fontSize="16" fontFamily="monospace" fontWeight="bold">)</text>
+      <text x="127" y="110" fill="#FEF08A" fontSize="16" fontFamily="monospace" fontWeight="bold">'</text>
+    </svg>
+  );
+}
+
+// 10. Radare2 (Official r<< Logo - User Image 4)
+export function Radare2Logo({ className = 'w-6 h-6', isDark = true }: LogoProps) {
+  const fillColor = isDark ? '#FFFFFF' : '#111827';
+  return (
+    <svg viewBox="0 0 300 160" className={className}>
+      {/* Stylized Serif 'r' with Left Ball/Dot */}
+      <circle cx="45" cy="65" r="22" fill={fillColor} />
+      <rect x="62" y="45" width="38" height="75" fill={fillColor} />
+      <rect x="52" y="112" width="58" height="8" fill={fillColor} />
+      <path fill={fillColor} d="M62 45c0-12 10-22 22-22h16v14H84c-4.4 0-8 3.6-8 8v10H62V45z" />
+
+      {/* Rewind Arrow Triangle 1 (<<) */}
+      <polygon points="175,45 115,82 175,120" fill={fillColor} />
+      {/* Rewind Arrow Triangle 2 (<<) */}
+      <polygon points="255,45 195,82 255,120" fill={fillColor} />
+    </svg>
+  );
+}
+
+// 11. React (Official Cyan #61DAFB Atom)
 export function ReactLogo({ className = 'w-6 h-6' }: LogoProps) {
   return (
     <svg viewBox="-11.5 -10.23174 23 20.46348" className={className}>
@@ -129,7 +201,7 @@ export function ReactLogo({ className = 'w-6 h-6' }: LogoProps) {
   );
 }
 
-// 9. Go (Official Cyan #00ADD8 Gopher Silhouette)
+// 12. Go (Official Cyan #00ADD8 Gopher Silhouette)
 export function GoLogo({ className = 'w-6 h-6' }: LogoProps) {
   return (
     <svg viewBox="0 0 128 128" className={className}>
@@ -141,7 +213,7 @@ export function GoLogo({ className = 'w-6 h-6' }: LogoProps) {
   );
 }
 
-// 10. Docker (Official Blue #2496ED Whale)
+// 13. Docker (Official Blue #2496ED Whale)
 export function DockerLogo({ className = 'w-6 h-6' }: LogoProps) {
   return (
     <svg viewBox="0 0 128 128" className={className}>
@@ -153,7 +225,7 @@ export function DockerLogo({ className = 'w-6 h-6' }: LogoProps) {
   );
 }
 
-// 11. Git (Official Orange #F03C2E Diamond + White Branch)
+// 14. Git (Official Orange #F03C2E Diamond + White Branch)
 export function GitLogo({ className = 'w-6 h-6' }: LogoProps) {
   return (
     <svg viewBox="0 0 128 128" className={className}>
@@ -169,7 +241,7 @@ export function GitLogo({ className = 'w-6 h-6' }: LogoProps) {
   );
 }
 
-// 12. Linux (Official Yellow #FCC624 Tux Penguin)
+// 15. Linux (Official Yellow #FCC624 Tux Penguin)
 export function LinuxLogo({ className = 'w-6 h-6' }: LogoProps) {
   return (
     <svg viewBox="0 0 128 128" className={className}>
@@ -177,6 +249,38 @@ export function LinuxLogo({ className = 'w-6 h-6' }: LogoProps) {
         fill="#FCC624"
         d="M64 4c-19.9 0-36 16.1-36 36v48c0 19.9 16.1 36 36 36s36-16.1 36-36V40c0-19.9-16.1-36-36-36zm-12 40c0-4.4 3.6-8 8-8s8 3.6 8 8-3.6 8-8 8-8-3.6-8-8zm24 0c0-4.4 3.6-8 8-8s8 3.6 8 8-3.6 8-8 8-8-3.6-8-8z"
       />
+    </svg>
+  );
+}
+
+// 16. Clerk (Official C Person Emblem from User Image)
+export function ClerkLogo({ className = 'w-6 h-6', isDark = true }: LogoProps) {
+  const arcColor = '#6C47FF';
+  const personColor = isDark ? '#FFFFFF' : '#111827';
+  return (
+    <svg viewBox="0 0 500 500" className={className}>
+      <path
+        fill={arcColor}
+        d="M256 50C142.2 50 50 142.2 50 256c0 58.1 24.1 110.6 62.9 148.1l50.3-50.3C135.5 328.2 122 293.7 122 256c0-74 60-134 134-134 38.3 0 73 16 97.7 41.7l50.3-50.3C367.6 76.1 315.1 50 256 50z"
+      />
+      <circle cx="256" cy="240" r="58" fill={personColor} />
+      <path
+        fill={personColor}
+        d="M256 325c-56.5 0-107.5 25.6-141.5 66 8.6 8.3 18.1 15.7 28.4 22.1 29.8-35.4 73.6-58.1 113.1-58.1s83.3 22.7 113.1 58.1c10.3-6.4 19.8-13.8 28.4-22.1C363.5 350.6 312.5 325 256 325z"
+      />
+    </svg>
+  );
+}
+
+// 17. Meilisearch (Official 3 Slanted Rounded Bars /// from User Image)
+export function MeilisearchLogo({ className = 'w-6 h-6' }: LogoProps) {
+  return (
+    <svg viewBox="0 0 100 100" className={className}>
+      <g transform="skewX(-22)">
+        <rect x="22" y="10" width="18" height="80" rx="9" fill="#FF2E93" />
+        <rect x="47" y="10" width="18" height="80" rx="9" fill="#FF2E93" />
+        <rect x="72" y="10" width="18" height="80" rx="9" fill="#FF2E93" />
+      </g>
     </svg>
   );
 }

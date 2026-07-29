@@ -9,10 +9,10 @@ export function LeadershipSection() {
   return (
     <section id="leadership" className="py-20 px-4 max-w-5xl mx-auto z-10 relative">
       <motion.div
-        initial={{ opacity: 0, rotateX: 10 }}
-        whileInView={{ opacity: 1, rotateX: 0 }}
-        viewport={{ once: true, margin: '-100px' }}
-        transition={{ duration: 0.6 }}
+        initial={{ opacity: 0, y: 32, scale: 0.98 }}
+        whileInView={{ opacity: 1, y: 0, scale: 1 }}
+        viewport={{ once: false, amount: 0.25 }}
+        transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
       >
         {/* Section Heading */}
         <div className="flex items-center gap-3 mb-10">

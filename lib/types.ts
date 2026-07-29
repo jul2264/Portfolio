@@ -12,6 +12,7 @@ export interface PersonalData {
 export interface EducationItem {
   institution: string;
   degree: string;
+  syllabus?: string;
   grade: string;
   period: string;
   location: string;
@@ -43,28 +44,44 @@ export interface ResumeData {
 }
 
 export interface ProjectItem {
-  id: string;
+  id?: string;
   title: string;
-  subtitle: string;
-  period: string;
+  subtitle?: string;
+  category?: string;
+  shortDescription?: string;
+  fullDescription?: string;
+  summary?: string;
   techStack: string[];
-  summary: string;
-  keyFeatures: string[];
-  architectureSummary: string;
-  github: string;
-  demo: string;
-  accent: 'blue' | 'green';
+  highlights?: string[];
+  keyFeatures?: string[];
+  architectureSummary?: string;
+  metrics?: string;
+  githubUrl?: string;
+  github?: string;
+  liveUrl?: string;
+  demo?: string;
+  featured?: boolean;
+  accent?: 'blue' | 'green' | 'none';
+  period?: string;
 }
 
 export interface SkillItem {
   name: string;
+  category: string;
   icon: string;
-  category: 'Languages' | 'Frameworks' | 'Developer Tools' | 'Security Tools';
+  proficiency?: number;
+}
+
+export interface SkillCategory {
+  category: string;
+  skills: string[];
 }
 
 export interface SkillsData {
-  languages: SkillItem[];
-  frameworks: SkillItem[];
-  developerTools: SkillItem[];
-  securityTools: SkillItem[];
+  languages?: SkillItem[];
+  frameworks?: SkillItem[];
+  developerTools?: SkillItem[];
+  securityTools?: SkillItem[];
+  technicalSkills?: SkillCategory[];
+  cybersecurityTools?: SkillCategory[];
 }

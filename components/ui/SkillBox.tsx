@@ -21,7 +21,8 @@ export function SkillBox({ skill, index }: SkillBoxProps) {
 
   const isDark = !mounted || theme !== 'light';
   const brandConfig = getBrandIconConfig(skill.icon);
-  const accentTextColor = index % 2 === 0 ? 'text-accentBlue' : 'text-accentGreen';
+  const watermarkColor = brandConfig.getWatermarkColor(isDark);
+  const viewBox = brandConfig.viewBox || '0 0 24 24';
 
   return (
     <motion.div
@@ -45,10 +46,11 @@ export function SkillBox({ skill, index }: SkillBoxProps) {
         </span>
       </div>
 
-      {/* Right Official Watermark Logo (Tinted in Green / Blue Accent) */}
+      {/* Right Official Watermark Logo (Matches Official Application Brand Color Palette & ViewBox!) */}
       <svg
-        viewBox="0 0 24 24"
-        className={`absolute -right-3 -bottom-3 w-16 h-16 fill-current ${accentTextColor} opacity-[0.08] group-hover:opacity-25 group-hover:scale-110 transition-all duration-300 pointer-events-none`}
+        viewBox={viewBox}
+        className="absolute -right-3 -bottom-3 w-16 h-16 opacity-[0.10] group-hover:opacity-30 group-hover:scale-110 transition-all duration-300 pointer-events-none"
+        style={{ fill: watermarkColor }}
       >
         <path d={brandConfig.watermarkPath} />
       </svg>

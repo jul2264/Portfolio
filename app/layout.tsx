@@ -1,17 +1,14 @@
 import type { Metadata } from 'next';
-import { Inter, JetBrains_Mono } from 'next/font/google';
+import { Noto_Sans_Mono } from 'next/font/google';
 import { ThemeProvider } from '@/components/providers/ThemeProvider';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import '@/app/globals.css';
 
-const inter = Inter({
+const notoSansMono = Noto_Sans_Mono({
   subsets: ['latin'],
-  variable: '--font-sans',
-});
-
-const mono = JetBrains_Mono({
-  subsets: ['latin'],
-  variable: '--font-mono',
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+  variable: '--font-noto-mono',
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
@@ -53,8 +50,16 @@ export default function RootLayout({
   const gaId = process.env.NEXT_PUBLIC_GA_ID;
 
   return (
-    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${mono.variable}`}>
-      <body className="antialiased font-sans bg-bgPrimary text-textPrimary">
+    <html lang="en" suppressHydrationWarning className={`${notoSansMono.variable}`}>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@100..900&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body className="antialiased font-mono bg-bgPrimary text-textPrimary">
         <ThemeProvider attribute="data-theme" defaultTheme="dark" enableSystem>
           {children}
         </ThemeProvider>

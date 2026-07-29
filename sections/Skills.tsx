@@ -14,12 +14,12 @@ const categories = [
 
 export function SkillsSection() {
   return (
-    <section id="skills" className="py-20 px-4 max-w-7xl mx-auto z-10 relative">
+    <section id="skills" className="pt-16 pb-6 px-4 max-w-7xl mx-auto z-10 relative">
       <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true, margin: '-100px' }}
-        transition={{ duration: 0.6 }}
+        initial={{ opacity: 0, y: 32, scale: 0.98 }}
+        whileInView={{ opacity: 1, y: 0, scale: 1 }}
+        viewport={{ once: false, amount: 0.2 }}
+        transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
       >
         {/* Section Heading */}
         <div className="flex items-center gap-3 mb-12">
@@ -42,7 +42,7 @@ export function SkillsSection() {
                 </div>
 
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-                  {cat.data.map((skill, idx) => (
+                  {(cat.data || []).map((skill, idx) => (
                     <SkillBox key={skill.name} skill={skill} index={idx} />
                   ))}
                 </div>
