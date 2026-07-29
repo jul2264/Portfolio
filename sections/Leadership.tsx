@@ -7,7 +7,7 @@ import { Palette, Calendar, MapPin, Award } from 'lucide-react';
 
 export function LeadershipSection() {
   return (
-    <section id="leadership" className="py-20 px-4 max-w-5xl mx-auto z-10 relative">
+    <section id="leadership" className="pt-6 pb-16 px-4 max-w-5xl mx-auto z-10 relative">
       <motion.div
         initial={{ opacity: 0, y: 32, scale: 0.98 }}
         whileInView={{ opacity: 1, y: 0, scale: 1 }}

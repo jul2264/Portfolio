@@ -90,9 +90,9 @@ export function ExperienceSection() {
         </div>
 
         {/* Compact Futuristic HUD Card */}
-        <div className="relative rounded-2xl bg-surface/85 backdrop-blur-xl border border-borderSubtle p-5 sm:p-6 shadow-xl space-y-5 overflow-hidden group hover:border-accentGreen/40 transition-colors duration-300">
+        <div className="relative rounded-2xl bg-surface/85 backdrop-blur-xl border border-accentBlue/30 p-5 sm:p-6 shadow-xl space-y-5 overflow-hidden group hover:border-accentBlue/70 transition-colors duration-300">
           {/* Subtle Glowing Top Border Line */}
-          <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-accentGreen via-accentBlue to-accentGreen opacity-75" />
+          <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-accentBlue via-secondaryBlue to-accentBlue opacity-85" />
 
           {/* Header Row: Role (White -> Blue on Hover), Company (Green) & Meta Info */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 border-b border-borderSubtle/50">
