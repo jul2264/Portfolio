@@ -75,7 +75,7 @@ export function ExperienceSection() {
   const exp = resumeData.experience[0]; // Cyber Security Intern @ Talenciaglobal
 
   return (
-    <section id="experience" className="py-12 px-4 max-w-5xl mx-auto z-10 relative">
+    <section id="experience" className="py-12 px-4 sm:px-6 max-w-7xl mx-auto z-10 relative">
       <motion.div
         initial={{ opacity: 0, y: 28, scale: 0.98 }}
         whileInView={{ opacity: 1, y: 0, scale: 1 }}

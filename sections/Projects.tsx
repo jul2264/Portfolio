@@ -5,7 +5,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { projectsData } from '@/lib/data';
 import { GithubIcon } from '@/components/ui/SocialIcons';
-import { Code2, Sparkles } from 'lucide-react';
+import { Code2 } from 'lucide-react';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
@@ -25,7 +25,7 @@ export function ProjectsSection() {
 
       // Desktop & Tablet Viewports: Pin section and scrub horizontal track
       mm.add('(min-width: 640px)', () => {
-        const getScrollAmount = () => -(track.scrollWidth - window.innerWidth + 40);
+        const getScrollAmount = () => -(track.scrollWidth - window.innerWidth + 80);
 
         gsap.to(track, {
           x: getScrollAmount,
@@ -33,8 +33,8 @@ export function ProjectsSection() {
           scrollTrigger: {
             trigger: section,
             start: 'top top',
-            end: () => `+=${Math.max(track.scrollWidth - window.innerWidth + 120, 600)}`,
-            scrub: 1,
+            end: () => `+=${track.scrollWidth - window.innerWidth + window.innerHeight * 1.25}`,
+            scrub: true,
             pin: true,
             invalidateOnRefresh: true,
           },
@@ -49,22 +49,14 @@ export function ProjectsSection() {
     <section
       ref={sectionRef}
       id="projects"
-      className="playground-section relative w-full overflow-hidden z-10 py-12 px-4 sm:px-8"
+      className="playground-section relative w-full overflow-hidden z-10 py-12 px-4 sm:px-6 max-w-7xl mx-auto"
     >
-      <div className="max-w-7xl mx-auto mb-6">
+      <div className="mb-6">
         {/* Section Header */}
-        <div className="flex items-center justify-between border-b border-borderSubtle/60 pb-3">
-          <div className="flex items-center gap-2.5">
-            <span className="p-1.5 rounded-lg bg-accentBlue/10 border border-accentBlue/30 text-accentBlue">
-              <Sparkles className="w-4 h-4" />
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-textPrimary tracking-tight">
-              Projects Playground
-            </h2>
-          </div>
-          <span className="font-mono text-xs text-textMuted font-semibold hidden sm:inline-block">
-            [ SCROLL DOWN TO EXPLORE ]
-          </span>
+        <div className="flex items-center gap-3 border-b border-borderSubtle/60 pb-3">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-textPrimary tracking-tight">
+            Projects
+          </h2>
         </div>
       </div>
 
@@ -76,10 +68,10 @@ export function ProjectsSection() {
         {projectsData.map((project) => (
           <div
             key={project.id}
-            className="card w-[88vw] sm:w-[540px] lg:w-[640px] shrink-0 relative rounded-2xl bg-surface/90 backdrop-blur-xl border border-borderSubtle p-5 sm:p-7 shadow-xl hover:border-accentGreen/50 transition-colors duration-300 flex flex-col justify-between group"
+            className="card w-[88vw] sm:w-[540px] lg:w-[640px] shrink-0 relative rounded-2xl bg-surface/90 backdrop-blur-xl border border-white/20 overflow-hidden p-5 sm:p-7 shadow-xl hover:border-white/60 transition-colors duration-300 flex flex-col justify-between group"
           >
-            {/* Glowing Accent Top Border Line */}
-            <div className="absolute top-0 left-0 right-0 h-[2px] rounded-t-2xl bg-gradient-to-r from-accentGreen via-accentBlue to-accentGreen opacity-85" />
+            {/* Thin White Top Accent Line */}
+            <div className="absolute top-0 left-0 right-0 h-[1px] rounded-t-2xl bg-white/40 opacity-90" />
 
             <div className="space-y-4">
               {/* TOP ROW: Project Title (Green Text) & Github Repo Link */}

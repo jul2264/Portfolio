@@ -34,7 +34,7 @@ export function HeroSection() {
   return (
     <section
       id="about"
-      className="relative min-h-[calc(100vh-4rem)] flex items-center justify-center pt-16 pb-4 px-4 sm:px-6 max-w-7xl mx-auto z-10"
+      className="relative min-h-[calc(100vh-4rem)] flex items-center justify-center py-12 px-4 sm:px-6 max-w-7xl mx-auto z-10"
     >
       <motion.div
         initial={{ opacity: 0, y: 15 }}

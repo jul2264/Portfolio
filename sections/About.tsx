@@ -31,7 +31,7 @@ const specializationsWithDetails = [
 
 export function AboutSection() {
   return (
-    <section id="about" className="py-20 px-4 max-w-7xl mx-auto z-10 relative">
+    <section id="about" className="py-12 px-4 sm:px-6 max-w-7xl mx-auto z-10 relative">
       <motion.div
         initial={{ opacity: 0, x: -30 }}
         whileInView={{ opacity: 1, x: 0 }}
@@ -39,10 +39,8 @@ export function AboutSection() {
         transition={{ duration: 0.6 }}
       >
         {/* Section Heading */}
-        <div className="flex items-center gap-3 mb-10">
-          <span className="font-mono text-accentBlue text-sm font-semibold">01.</span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-textPrimary">About Me</h2>
-          <div className="h-px bg-borderSubtle flex-1 max-w-xs" />
+        <div className="flex items-center gap-3 mb-6 border-b border-borderSubtle/60 pb-3">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-textPrimary tracking-tight">About Me</h2>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">

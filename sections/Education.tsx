@@ -14,7 +14,7 @@ export function EducationSection() {
   const educationList = resumeData.education;
 
   return (
-    <section id="education" className="pt-4 pb-12 px-4 max-w-5xl mx-auto z-10 relative">
+    <section id="education" className="py-12 px-4 sm:px-6 max-w-7xl mx-auto z-10 relative">
       <div className="space-y-4">
         {/* Section Heading with Bi-Directional Entrance */}
         <motion.div
@@ -22,7 +22,7 @@ export function EducationSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.3 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="flex items-center justify-between border-b border-borderSubtle/60 pb-2 mb-4"
+          className="flex items-center gap-3 border-b border-borderSubtle/60 pb-3 mb-4"
         >
           <h2 className="text-3xl sm:text-4xl font-extrabold text-textPrimary tracking-tight">
             Education

@@ -14,7 +14,7 @@ const categories = [
 
 export function SkillsSection() {
   return (
-    <section id="skills" className="pt-16 pb-6 px-4 max-w-7xl mx-auto z-10 relative">
+    <section id="skills" className="py-12 px-4 sm:px-6 max-w-7xl mx-auto z-10 relative">
       <motion.div
         initial={{ opacity: 0, y: 32, scale: 0.98 }}
         whileInView={{ opacity: 1, y: 0, scale: 1 }}
@@ -22,10 +22,8 @@ export function SkillsSection() {
         transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
       >
         {/* Section Heading */}
-        <div className="flex items-center gap-3 mb-12">
-          <span className="font-mono text-accentBlue text-sm font-semibold">05.</span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-textPrimary">Technical Skills</h2>
-          <div className="h-px bg-borderSubtle flex-1 max-w-xs" />
+        <div className="flex items-center gap-3 mb-6 border-b border-borderSubtle/60 pb-3">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-textPrimary tracking-tight">Technical Skills</h2>
         </div>
 
         {/* Categorized Skill Box Grids */}

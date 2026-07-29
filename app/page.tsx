@@ -8,7 +8,6 @@ import { ProjectsSection } from '@/sections/Projects';
 import { SkillsSection } from '@/sections/Skills';
 import { LeadershipSection } from '@/sections/Leadership';
 import { ContactSection } from '@/sections/Contact';
-import { Footer } from '@/sections/Footer';
 
 export default function Home() {
   return (
@@ -42,9 +41,6 @@ export default function Home() {
 
       {/* Contact Section */}
       <ContactSection />
-
-      {/* Footer */}
-      <Footer />
     </main>
   );
 }
