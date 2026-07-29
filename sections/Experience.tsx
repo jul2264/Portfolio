@@ -1,93 +1,142 @@
 'use client';
 
-import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { useState, useEffect, useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 import { resumeData } from '@/lib/data';
-import { GlassCard } from '@/components/ui/GlassCard';
-import { Briefcase, Calendar, MapPin, Shield, ChevronRight } from 'lucide-react';
+import { Calendar, MapPin } from 'lucide-react';
+
+function TypewriterDescription({ text }: { text: string }) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(containerRef, { amount: 0.2 });
+  const [displayedLength, setDisplayedLength] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setDisplayedLength((prev) => {
+        if (isInView) {
+          if (prev < text.length) return Math.min(prev + 4, text.length);
+        } else {
+          if (prev > 0) return Math.max(prev - 6, 0);
+        }
+        return prev;
+      });
+    }, 15);
+
+    return () => clearInterval(interval);
+  }, [isInView, text]);
+
+  const currentText = text.slice(0, displayedLength);
+
+  // Highlight tools (OWASP, Radare2, Wireshark, SQLMap) strictly in GREEN text with NO boxes
+  const highlightGreenTools = (str: string) => {
+    const tools = ['OWASP', 'Radare2', 'Wireshark', 'SQLMap'];
+    let parts: { text: string; isTool: boolean }[] = [{ text: str, isTool: false }];
+
+    tools.forEach((tool) => {
+      const newParts: { text: string; isTool: boolean }[] = [];
+      parts.forEach((part) => {
+        if (part.isTool) {
+          newParts.push(part);
+        } else {
+          const split = part.text.split(tool);
+          split.forEach((sub, idx) => {
+            if (sub) newParts.push({ text: sub, isTool: false });
+            if (idx < split.length - 1) {
+              newParts.push({ text: tool, isTool: true });
+            }
+          });
+        }
+      });
+      parts = newParts;
+    });
+
+    return parts.map((part, i) =>
+      part.isTool ? (
+        <span key={i} className="text-accentGreen font-mono font-bold">
+          {part.text}
+        </span>
+      ) : (
+        <span key={i}>{part.text}</span>
+      )
+    );
+  };
+
+  return (
+    <div ref={containerRef} className="text-xs sm:text-sm text-textMuted leading-relaxed min-h-[60px]">
+      {highlightGreenTools(currentText)}
+      {displayedLength < text.length && (
+        <span className="inline-block w-1 h-3.5 ml-0.5 bg-accentGreen align-middle animate-pulse" />
+      )}
+    </div>
+  );
+}
 
 export function ExperienceSection() {
   const exp = resumeData.experience[0]; // Cyber Security Intern @ Talenciaglobal
-  const [activeTool, setActiveTool] = useState<string | null>('OWASP');
 
   return (
-    <section id="experience" className="py-16 px-4 max-w-5xl mx-auto z-10 relative">
+    <section id="experience" className="py-12 px-4 max-w-5xl mx-auto z-10 relative">
       <motion.div
-        initial={{ opacity: 0, y: 32, scale: 0.98 }}
+        initial={{ opacity: 0, y: 28, scale: 0.98 }}
         whileInView={{ opacity: 1, y: 0, scale: 1 }}
-        viewport={{ once: false, amount: 0.25 }}
-        transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+        viewport={{ once: false, amount: 0.2 }}
+        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       >
         {/* Section Heading */}
-        <div className="flex items-center gap-3 mb-10 border-b border-borderSubtle/60 pb-3">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-textPrimary tracking-tight">Work Experience</h2>
+        <div className="flex items-center gap-3 mb-6 border-b border-borderSubtle/60 pb-3">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-textPrimary tracking-tight">
+            Work Experience
+          </h2>
         </div>
 
-        {/* Experience Card */}
-        <GlassCard accent="blue" className="p-6 sm:p-8">
-          <div className="flex flex-wrap items-start justify-between gap-4 mb-6 pb-6 border-b border-borderSubtle">
+        {/* Compact Futuristic HUD Card */}
+        <div className="relative rounded-2xl bg-surface/85 backdrop-blur-xl border border-borderSubtle p-5 sm:p-6 shadow-xl space-y-5 overflow-hidden group hover:border-accentGreen/40 transition-colors duration-300">
+          {/* Subtle Glowing Top Border Line */}
+          <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-accentGreen via-accentBlue to-accentGreen opacity-75" />
+
+          {/* Header Row: Role (White -> Blue on Hover), Company (Green) & Meta Info */}
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 border-b border-borderSubtle/50">
             <div>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-accentGreen/10 border border-accentGreen/30 text-accentGreen text-xs font-mono font-semibold mb-2">
-                <Briefcase className="w-3.5 h-3.5" /> Cyber Security Internship
-              </span>
-              <h3 className="text-2xl font-bold text-textPrimary">{exp.role}</h3>
-              <p className="text-lg font-semibold text-accentBlue">{exp.company}</p>
+              {/* Cyber Security Intern: White by default, turns Blue on hover */}
+              <h3 className="text-xl sm:text-2xl font-extrabold text-textPrimary hover:text-accentBlue transition-colors duration-200 cursor-default">
+                {exp.role}
+              </h3>
+              {/* Talenciaglobal: Green */}
+              <p className="text-sm sm:text-base font-bold text-accentGreen font-mono">
+                {exp.company}
+              </p>
             </div>
 
-            <div className="flex flex-col text-right sm:items-end gap-1 font-mono text-xs text-textMuted">
-              <span className="flex items-center gap-1">
-                <Calendar className="w-3.5 h-3.5 text-accentBlue" /> {exp.period}
+            <div className="flex flex-wrap items-center gap-3 font-mono text-xs text-textMuted shrink-0">
+              <span className="flex items-center gap-1.5 text-textPrimary font-semibold">
+                <Calendar className="w-3.5 h-3.5 text-accentBlue shrink-0" />
+                {exp.period}
               </span>
-              <span className="flex items-center gap-1">
-                <MapPin className="w-3.5 h-3.5 text-accentGreen" /> {exp.location}
+              <span className="text-borderSubtle">•</span>
+              <span className="flex items-center gap-1.5">
+                <MapPin className="w-3.5 h-3.5 text-accentGreen shrink-0" />
+                {exp.location}
               </span>
             </div>
           </div>
 
-          {/* Sequential Experience Points */}
-          <div className="space-y-4 mb-8">
-            {exp.highlights.map((point, idx) => (
+          {/* 3-Column Node Grid containing strictly the resume descriptions without any subtitles */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5">
+            {exp.highlights.map((pointText, idx) => (
               <motion.div
                 key={idx}
-                initial={{ opacity: 0, x: -16 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: false, amount: 0.5 }}
-                transition={{ delay: idx * 0.1, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                className="flex items-start gap-3"
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false }}
+                transition={{ delay: idx * 0.08, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                className="p-4 rounded-xl bg-bgPrimary/60 border border-borderSubtle/60 hover:border-accentGreen/40 transition-all flex flex-col justify-center group/node"
               >
-                <div className="mt-1 p-1 rounded-full bg-accentBlue/10 border border-accentBlue/30 text-accentBlue shrink-0">
-                  <ChevronRight className="w-4 h-4" />
-                </div>
-                <p className="text-textMuted text-sm sm:text-base leading-relaxed flex-1">
-                  {point}
-                </p>
+                {/* Typewriter Description Component — Contains exact resume text, nothing more, nothing less */}
+                <TypewriterDescription text={pointText} />
               </motion.div>
             ))}
           </div>
-
-          {/* Tools & Standards Pills */}
-          <div>
-            <h4 className="text-xs font-mono uppercase tracking-wider text-textMuted mb-3">
-              Tools & Security Standards Utilized:
-            </h4>
-            <div className="flex flex-wrap gap-2.5">
-              {exp.tools.map((tool) => (
-                <button
-                  key={tool}
-                  onClick={() => setActiveTool(tool)}
-                  className={`px-4 py-2 rounded-xl text-xs font-mono font-semibold transition-all border flex items-center gap-2 ${
-                    activeTool === tool
-                      ? 'bg-accentBlue text-bgPrimary border-accentBlue scale-105'
-                      : 'bg-surface/80 border-borderSubtle text-textMuted hover:border-accentBlue hover:text-accentBlue'
-                  }`}
-                >
-                  <Shield className="w-3.5 h-3.5" />
-                  {tool}
-                </button>
-              ))}
-            </div>
-          </div>
-        </GlassCard>
+        </div>
       </motion.div>
     </section>
   );
