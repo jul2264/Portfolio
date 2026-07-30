@@ -64,7 +64,7 @@ export default function RootLayout({
         <ThemeProvider attribute="data-theme" defaultTheme="dark" enableSystem>
           {children}
         </ThemeProvider>
-        {gaId && <GoogleAnalytics gaId={gaId} />}
+        <GoogleAnalytics gaId={gaId} />
       </body>
     </html>
   );
