@@ -11,7 +11,6 @@ import {
   Shield,
   Server,
   Cpu,
-  Cloud,
 } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from '@/components/ui/SocialIcons';
 import { SkillChain } from '@/components/ui/SkillChain';
@@ -27,7 +26,6 @@ const expertiseList = [
   { name: 'Cybersecurity', icon: Shield, color: 'text-accentGreen' },
   { name: 'System Design', icon: Server, color: 'text-accentBlue' },
   { name: 'Product Engineering', icon: Cpu, color: 'text-accentGreen' },
-  { name: 'Cloud Architecture', icon: Cloud, color: 'text-accentBlue' },
 ];
 
 export function HeroSection() {
