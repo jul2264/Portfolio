@@ -48,7 +48,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const gaId = process.env.NEXT_PUBLIC_GA_ID;
+  const gaId = process.env.NEXT_PUBLIC_GA_ID || 'G-QTBMWHEKPR';
 
   return (
     <html lang="en" suppressHydrationWarning className={`${notoSansMono.variable}`}>
