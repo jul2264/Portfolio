@@ -44,11 +44,11 @@ export function EducationSection() {
                   delay: idx * 0.1,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className={`relative flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-surface/80 backdrop-blur-xl border ${colors.border} rounded-2xl p-5 sm:p-6 group hover:bg-surface transition-colors duration-300 shadow-md`}
+                className={`relative flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-surface/80 backdrop-blur-xl border ${colors.border} rounded-none p-5 sm:p-6 group hover:bg-surface transition-colors duration-300 shadow-md`}
               >
                 {/* Bi-Directional Left Accent Bar */}
                 <motion.div
-                  className={`absolute left-0 top-4 bottom-4 w-[3.5px] rounded-full ${colors.bar}`}
+                  className={`absolute left-0 top-4 bottom-4 w-[3.5px] rounded-none ${colors.bar}`}
                   initial={{ scaleY: 0 }}
                   whileInView={{ scaleY: 1 }}
                   viewport={{ once: false, amount: 0.5 }}

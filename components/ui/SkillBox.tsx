@@ -31,12 +31,12 @@ export function SkillBox({ skill, index }: SkillBoxProps) {
       viewport={{ once: true, margin: '-40px' }}
       transition={{ duration: 0.3, delay: index * 0.04 }}
       whileHover={{ y: -4, scale: 1.02 }}
-      className="group relative p-3.5 sm:p-4 rounded-2xl bg-surface/75 backdrop-blur-md border border-borderSubtle hover:border-accentBlue/60 hover:shadow-[0_0_20px_rgba(76,183,255,0.18)] transition-all duration-300 overflow-hidden cursor-pointer flex items-center justify-between"
+      className="group relative p-3.5 sm:p-4 rounded-none bg-surface/75 backdrop-blur-md border border-borderSubtle hover:border-accentBlue/60 hover:shadow-[0_0_20px_rgba(76,183,255,0.18)] transition-all duration-300 overflow-hidden cursor-pointer flex items-center justify-between"
     >
       {/* Left Small Container Box with Official Untinted App Logo */}
       <div className="flex items-center gap-3.5 relative z-10">
         {/* Small Container Box */}
-        <div className="w-10 h-10 rounded-xl bg-surface/90 border border-borderSubtle/80 flex items-center justify-center p-2 shrink-0 shadow-sm group-hover:border-accentBlue/40 transition-colors">
+        <div className="w-10 h-10 rounded-none bg-surface/90 border border-borderSubtle/80 flex items-center justify-center p-2 shrink-0 shadow-sm group-hover:border-accentBlue/40 transition-colors">
           {brandConfig.renderLeftLogo(isDark)}
         </div>
 

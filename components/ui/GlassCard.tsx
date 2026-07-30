@@ -27,7 +27,7 @@ export function GlassCard({
   return (
     <motion.div
       whileHover={hoverEffect ? { y: -4, transition: { duration: 0.2 } } : undefined}
-      className={`relative rounded-2xl bg-surface/75 backdrop-blur-xl border border-borderSubtle transition-all duration-300 shadow-lg p-6 ${accentGlowClass} ${className}`}
+      className={`relative rounded-none bg-surface/75 backdrop-blur-xl border border-borderSubtle transition-all duration-300 shadow-lg p-6 ${accentGlowClass} ${className}`}
       {...props}
     >
       {children}

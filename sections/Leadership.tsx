@@ -62,10 +62,10 @@ export function LeadershipSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false }}
               transition={{ delay: idx * 0.1, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-              className="relative rounded-2xl bg-surface/85 backdrop-blur-xl border border-white/20 overflow-hidden p-5 sm:p-6 shadow-xl hover:border-white/60 transition-colors duration-300 flex flex-col justify-between group"
+              className="relative rounded-none bg-surface/85 backdrop-blur-xl border border-white/20 overflow-hidden p-5 sm:p-6 shadow-xl hover:border-white/60 transition-colors duration-300 flex flex-col justify-between group"
             >
               {/* Thin Blue Top Accent Line */}
-              <div className="absolute top-0 left-0 right-0 h-[1px] rounded-t-2xl bg-accentBlue/40 opacity-90" />
+              <div className="absolute top-0 left-0 right-0 h-[1px] rounded-none bg-accentBlue/40 opacity-90" />
 
               <div className="space-y-4">
                 {/* TOP ROW: Role (White -> Blue on Hover) & Organization (Green) */}

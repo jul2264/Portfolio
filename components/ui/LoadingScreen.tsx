@@ -73,7 +73,7 @@ export function LoadingScreen() {
           className="fixed inset-0 z-[100] bg-bgPrimary text-textPrimary flex flex-col items-center justify-center p-6 selection:bg-accentBlue selection:text-bgPrimary pointer-events-auto"
         >
           {/* Subtle Ambient Glow */}
-          <div className="absolute w-96 h-96 bg-accentBlue/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute w-96 h-96 bg-accentBlue/10 rounded-none blur-3xl pointer-events-none" />
 
           <motion.div
             initial={{ opacity: 0, y: 15 }}
@@ -82,8 +82,8 @@ export function LoadingScreen() {
             className="w-full max-w-sm flex flex-col items-center text-center z-10"
           >
             {/* Minimalist Terminal Icon Badge */}
-            <div className="w-14 h-14 rounded-2xl bg-surface/90 border border-borderSubtle flex items-center justify-center text-accentBlue mb-6 shadow-2xl relative group">
-              <div className="absolute inset-0 rounded-2xl bg-accentBlue/10 blur-sm pointer-events-none" />
+            <div className="w-14 h-14 rounded-none bg-surface/90 border border-borderSubtle flex items-center justify-center text-accentBlue mb-6 shadow-2xl relative group">
+              <div className="absolute inset-0 rounded-none bg-accentBlue/10 blur-sm pointer-events-none" />
               <Terminal className="w-6 h-6 text-accentBlue relative z-10" />
             </div>
 
@@ -96,9 +96,9 @@ export function LoadingScreen() {
             </p>
 
             {/* Minimalist Progress Line */}
-            <div className="w-full h-1.5 bg-surface border border-borderSubtle/60 rounded-full overflow-hidden relative mb-4 shadow-inner">
+            <div className="w-full h-1.5 bg-surface border border-borderSubtle/60 rounded-none overflow-hidden relative mb-4 shadow-inner">
               <motion.div
-                className="h-full bg-accentBlue rounded-full shadow-[0_0_12px_rgba(76,183,255,0.6)]"
+                className="h-full bg-accentBlue rounded-none shadow-[0_0_12px_rgba(76,183,255,0.6)]"
                 style={{ width: `${Math.min(progress, 100)}%` }}
               />
             </div>

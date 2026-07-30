@@ -15,7 +15,7 @@ export function ThemeToggle() {
 
   if (!mounted) {
     return (
-      <div className="w-10 h-10 rounded-full border border-borderSubtle bg-surface/50 backdrop-blur-md" />
+      <div className="w-10 h-10 rounded-none border border-borderSubtle bg-surface/50 backdrop-blur-md" />
     );
   }
 
@@ -26,7 +26,7 @@ export function ThemeToggle() {
       whileHover={{ scale: 1.08 }}
       whileTap={{ scale: 0.92 }}
       onClick={() => setTheme(isDark ? 'light' : 'dark')}
-      className="relative p-2.5 rounded-full bg-surface/70 backdrop-blur-md border border-borderSubtle hover:border-accentBlue text-textPrimary transition-all duration-300 shadow-md focus:outline-none focus:ring-2 focus:ring-accentBlue"
+      className="relative p-2.5 rounded-none bg-surface/70 backdrop-blur-md border border-borderSubtle hover:border-accentBlue text-textPrimary transition-all duration-300 shadow-md focus:outline-none focus:ring-2 focus:ring-accentBlue"
       aria-label="Toggle Theme"
       title={isDark ? "Switch to Light Mode" : "Switch to Dark Mode"}
     >

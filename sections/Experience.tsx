@@ -90,7 +90,7 @@ export function ExperienceSection() {
         </div>
 
         {/* Compact Futuristic HUD Card */}
-        <div className="relative rounded-2xl bg-surface/85 backdrop-blur-xl border border-accentBlue/30 p-5 sm:p-6 shadow-xl space-y-5 overflow-hidden group hover:border-accentBlue/70 transition-colors duration-300">
+        <div className="relative rounded-none bg-surface/85 backdrop-blur-xl border border-accentBlue/30 p-5 sm:p-6 shadow-xl space-y-5 overflow-hidden group hover:border-accentBlue/70 transition-colors duration-300">
           {/* Subtle Glowing Top Border Line */}
           <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-accentBlue via-secondaryBlue to-accentBlue opacity-85" />
 
@@ -129,7 +129,7 @@ export function ExperienceSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false }}
                 transition={{ delay: idx * 0.08, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                className="p-4 rounded-xl bg-bgPrimary/60 border border-borderSubtle/60 hover:border-accentGreen/40 transition-all flex flex-col justify-center group/node"
+                className="p-4 rounded-none bg-bgPrimary/60 border border-borderSubtle/60 hover:border-accentGreen/40 transition-all flex flex-col justify-center group/node"
               >
                 {/* Typewriter Description Component — Contains exact resume text, nothing more, nothing less */}
                 <TypewriterDescription text={pointText} />

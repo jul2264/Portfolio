@@ -40,16 +40,16 @@ export function HeroSection() {
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
-        className="w-full bg-surface/70 backdrop-blur-2xl border border-borderSubtle rounded-3xl p-4 sm:p-5 lg:p-6 shadow-2xl relative overflow-hidden"
+        className="w-full bg-surface/70 backdrop-blur-2xl border border-borderSubtle rounded-none p-4 sm:p-5 lg:p-6 shadow-2xl relative overflow-hidden"
       >
         {/* Ambient Top Glow */}
-        <div className="absolute -top-24 -left-24 w-80 h-80 bg-accentBlue/15 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -top-24 -left-24 w-80 h-80 bg-accentBlue/15 rounded-none blur-3xl pointer-events-none" />
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-7 items-center relative z-10">
           {/* LEFT COLUMN: Julian Real Photo & Skill Chain Below */}
           <div className="lg:col-span-4 flex flex-col items-center justify-center">
             {/* Photo Container Frame */}
-            <div className="relative w-full max-w-[250px] sm:max-w-[280px] lg:max-w-full aspect-[4/4.2] rounded-2xl overflow-hidden border-2 border-borderSubtle bg-surface/90 shadow-xl group">
+            <div className="relative w-full max-w-[250px] sm:max-w-[280px] lg:max-w-full aspect-[4/4.2] rounded-none overflow-hidden border-2 border-borderSubtle bg-surface/90 shadow-xl group">
               <PixelDissolvePhoto
                 src="/julian_photo.jpg"
                 alt="Julian Steve Anban"
@@ -57,7 +57,7 @@ export function HeroSection() {
               />
 
               {/* Bottom Name Box - Only Julian Steve Anban */}
-              <div className="absolute bottom-2.5 left-2.5 right-2.5 p-2 rounded-xl bg-surface/90 backdrop-blur-md border border-borderSubtle/80 flex items-center justify-center">
+              <div className="absolute bottom-2.5 left-2.5 right-2.5 p-2 rounded-none bg-surface/90 backdrop-blur-md border border-borderSubtle/80 flex items-center justify-center">
                 <h3 className="text-xs sm:text-sm font-bold text-textPrimary text-center">
                   Julian Steve Anban
                 </h3>
@@ -95,7 +95,7 @@ export function HeroSection() {
                   return (
                     <div
                       key={item.name}
-                      className="flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-surface/90 border border-borderSubtle text-[11.5px] sm:text-xs font-mono font-semibold text-textPrimary shrink-0 hover:border-accentBlue transition-colors shadow-xs"
+                      className="flex items-center gap-1.5 px-2.5 py-1 rounded-none bg-surface/90 border border-borderSubtle text-[11.5px] sm:text-xs font-mono font-semibold text-textPrimary shrink-0 hover:border-accentBlue transition-colors shadow-xs"
                     >
                       <IconComponent className={`w-3.5 h-3.5 ${item.color}`} />
                       <span>{item.name}</span>
@@ -116,7 +116,7 @@ export function HeroSection() {
                 <a
                   href={`mailto:${resumeData.personal.email}`}
                   onClick={() => trackContactClick('Hero Mail')}
-                  className="p-2.5 rounded-xl bg-surface/90 border border-borderSubtle hover:border-accentBlue text-textMuted hover:text-accentBlue transition-all shadow-xs hover:scale-105 flex items-center justify-center"
+                  className="p-2.5 rounded-none bg-surface/90 border border-borderSubtle hover:border-accentBlue text-textMuted hover:text-accentBlue transition-all shadow-xs hover:scale-105 flex items-center justify-center"
                   title="Direct Mail (juliansteve.anban@gmail.com)"
                 >
                   <Mail className="w-5 h-5 text-accentBlue" />
@@ -128,7 +128,7 @@ export function HeroSection() {
                   onClick={() => trackContactClick('Hero LinkedIn')}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2.5 rounded-xl bg-surface/90 border border-borderSubtle hover:border-accentBlue text-textMuted hover:text-accentBlue transition-all shadow-xs hover:scale-105 flex items-center justify-center"
+                  className="p-2.5 rounded-none bg-surface/90 border border-borderSubtle hover:border-accentBlue text-textMuted hover:text-accentBlue transition-all shadow-xs hover:scale-105 flex items-center justify-center"
                   title="LinkedIn Profile"
                 >
                   <LinkedinIcon className="w-5 h-5" />
@@ -140,7 +140,7 @@ export function HeroSection() {
                   onClick={() => trackContactClick('Hero GitHub')}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2.5 rounded-xl bg-surface/90 border border-borderSubtle hover:border-accentGreen text-textMuted hover:text-accentGreen transition-all shadow-xs hover:scale-105 flex items-center justify-center"
+                  className="p-2.5 rounded-none bg-surface/90 border border-borderSubtle hover:border-accentGreen text-textMuted hover:text-accentGreen transition-all shadow-xs hover:scale-105 flex items-center justify-center"
                   title="GitHub Profile"
                 >
                   <GithubIcon className="w-5 h-5 text-accentGreen" />
@@ -150,7 +150,7 @@ export function HeroSection() {
                 <a
                   href={`tel:${resumeData.personal.phone}`}
                   onClick={() => trackContactClick('Hero Telephone')}
-                  className="p-2.5 rounded-xl bg-surface/90 border border-borderSubtle hover:border-accentBlue text-textMuted hover:text-accentBlue transition-all shadow-xs hover:scale-105 flex items-center justify-center"
+                  className="p-2.5 rounded-none bg-surface/90 border border-borderSubtle hover:border-accentBlue text-textMuted hover:text-accentBlue transition-all shadow-xs hover:scale-105 flex items-center justify-center"
                   title="Phone (+91 8217288418)"
                 >
                   <Phone className="w-5 h-5 text-accentBlue" />
@@ -161,7 +161,7 @@ export function HeroSection() {
                   href="/Julian_Steve_A_Extended.pdf"
                   download="Julian_Steve_A_Extended.pdf"
                   onClick={trackResumeDownload}
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-accentBlue/10 border border-accentBlue/40 text-accentBlue hover:bg-accentGreen/20 hover:border-accentGreen hover:text-accentGreen font-bold transition-all shadow-sm hover:scale-105 text-xs cursor-pointer ml-auto backdrop-blur-md group"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-none bg-accentBlue/10 border border-accentBlue/40 text-accentBlue hover:bg-accentGreen/20 hover:border-accentGreen hover:text-accentGreen font-bold transition-all shadow-sm hover:scale-105 text-xs cursor-pointer ml-auto backdrop-blur-md group"
                 >
                   <Download className="w-4 h-4 text-accentBlue group-hover:text-accentGreen transition-colors" />
                   <span>Download Resume</span>

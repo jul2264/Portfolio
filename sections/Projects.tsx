@@ -68,10 +68,10 @@ export function ProjectsSection() {
         {projectsData.map((project) => (
           <div
             key={project.id}
-            className="card w-[88vw] sm:w-[540px] lg:w-[640px] shrink-0 relative rounded-2xl bg-surface/90 backdrop-blur-xl border border-white/20 overflow-hidden p-5 sm:p-7 shadow-xl hover:border-white/60 transition-colors duration-300 flex flex-col justify-between group"
+            className="card w-[88vw] sm:w-[540px] lg:w-[640px] shrink-0 relative rounded-none bg-surface/90 backdrop-blur-xl border border-white/20 overflow-hidden p-5 sm:p-7 shadow-xl hover:border-white/60 transition-colors duration-300 flex flex-col justify-between group"
           >
             {/* Thin White Top Accent Line */}
-            <div className="absolute top-0 left-0 right-0 h-[1px] rounded-t-2xl bg-white/40 opacity-90" />
+            <div className="absolute top-0 left-0 right-0 h-[1px] rounded-none bg-white/40 opacity-90" />
 
             <div className="space-y-4">
               {/* TOP ROW: Project Title (Green Text) & Github Repo Link */}
@@ -85,7 +85,7 @@ export function ProjectsSection() {
                   href={project.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-3.5 py-1.5 rounded-lg bg-bgPrimary/80 border border-borderSubtle/80 hover:border-accentBlue text-textPrimary hover:text-accentBlue transition-all flex items-center gap-1.5 text-xs font-mono font-bold hover:scale-105 shrink-0"
+                  className="px-3.5 py-1.5 rounded-none bg-bgPrimary/80 border border-borderSubtle/80 hover:border-accentBlue text-textPrimary hover:text-accentBlue transition-all flex items-center gap-1.5 text-xs font-mono font-bold hover:scale-105 shrink-0"
                 >
                   <GithubIcon className="w-3.5 h-3.5" /> Github Repo
                 </a>
@@ -100,7 +100,7 @@ export function ProjectsSection() {
                   {project.techStack.map((tech) => (
                     <span
                       key={tech}
-                      className="px-2 py-0.5 rounded-md bg-bgPrimary/70 border border-borderSubtle/60 text-accentBlue text-[11px] font-mono font-semibold"
+                      className="px-2 py-0.5 rounded-none bg-bgPrimary/70 border border-borderSubtle/60 text-accentBlue text-[11px] font-mono font-semibold"
                     >
                       {tech}
                     </span>

@@ -124,7 +124,7 @@ export function PixelDissolvePhoto({
                 delay: tile.delay,
                 ease: [0.16, 1, 0.3, 1],
               }}
-              className={`${bgClass} rounded-xs`}
+              className={`${bgClass} rounded-none`}
             />
           );
         })}

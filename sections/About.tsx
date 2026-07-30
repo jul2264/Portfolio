@@ -61,7 +61,7 @@ export function AboutSection() {
                 href="/Julian_Steve_A_Extended.pdf"
                 download="Julian_Steve_A_Extended.pdf"
                 onClick={trackResumeDownload}
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-surface/90 border border-borderSubtle text-textPrimary hover:border-accentBlue hover:text-accentBlue transition-all shadow-md font-semibold text-sm hover:scale-105"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-none bg-surface/90 border border-borderSubtle text-textPrimary hover:border-accentBlue hover:text-accentBlue transition-all shadow-md font-semibold text-sm hover:scale-105"
               >
                 <Download className="w-4 h-4 text-accentBlue" /> Download Full Resume (PDF)
               </a>

@@ -28,11 +28,11 @@ export function Navbar() {
           href="#hero"
           className="flex items-center gap-2 text-textPrimary font-bold text-lg tracking-tight group"
         >
-          <div className="p-1.5 rounded-lg bg-accentBlue/10 border border-accentBlue/30 text-accentBlue group-hover:bg-accentBlue group-hover:text-bgPrimary transition-all duration-300">
+          <div className="p-1.5 rounded-none bg-accentBlue/10 border border-accentBlue/30 text-accentBlue group-hover:bg-accentBlue group-hover:text-bgPrimary transition-all duration-300">
             <Terminal className="w-5 h-5" />
           </div>
           <span className="group-hover:text-accentBlue transition-colors">
-            Julian<span className="text-accentGreen">.dev</span>
+            Julian Steve Anban
           </span>
         </a>
 
@@ -56,7 +56,7 @@ export function Navbar() {
             onClick={() => trackContactClick('Navbar Email')}
             target="_blank"
             rel="noopener noreferrer"
-            className="p-2 rounded-full text-textMuted hover:text-accentBlue hover:bg-surface/80 transition-all"
+            className="p-2 rounded-none text-textMuted hover:text-accentBlue hover:bg-surface/80 transition-all"
             aria-label="Direct Email"
             title="Send Email"
           >
@@ -67,7 +67,7 @@ export function Navbar() {
             onClick={() => trackContactClick('Navbar LinkedIn')}
             target="_blank"
             rel="noopener noreferrer"
-            className="p-2 rounded-full text-textMuted hover:text-accentBlue hover:bg-surface/80 transition-all"
+            className="p-2 rounded-none text-textMuted hover:text-accentBlue hover:bg-surface/80 transition-all"
             aria-label="LinkedIn Profile"
             title="LinkedIn"
           >
@@ -78,7 +78,7 @@ export function Navbar() {
             onClick={() => trackContactClick('Navbar GitHub')}
             target="_blank"
             rel="noopener noreferrer"
-            className="p-2 rounded-full text-textMuted hover:text-accentGreen hover:bg-surface/80 transition-all"
+            className="p-2 rounded-none text-textMuted hover:text-accentGreen hover:bg-surface/80 transition-all"
             aria-label="GitHub Profile"
             title="GitHub"
           >
@@ -93,7 +93,7 @@ export function Navbar() {
           <ThemeToggle />
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 rounded-lg text-textPrimary hover:bg-surface/80"
+            className="p-2 rounded-none text-textPrimary hover:bg-surface/80"
             aria-label="Toggle Navigation Menu"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -108,7 +108,7 @@ export function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="sm:hidden mt-3 pt-3 border-t border-borderSubtle bg-surface/90 rounded-2xl p-4 shadow-xl flex flex-col gap-3"
+            className="sm:hidden mt-3 pt-3 border-t border-borderSubtle bg-surface/90 rounded-none p-4 shadow-xl flex flex-col gap-3"
           >
             {navLinks.map((link) => (
               <a

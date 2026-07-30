@@ -52,3 +52,8 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
   font-optical-sizing: auto;
 }
+
+/* Custom site-wide cursor using the provided SVG */
+html, body, a, button, input, textarea, select {
+  cursor: url('/cursor.svg') 18 18, auto;
+}

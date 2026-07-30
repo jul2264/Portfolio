@@ -112,7 +112,7 @@ export function TypewriterText({
             <motion.span
               animate={{ opacity: [1, 0] }}
               transition={{ repeat: Infinity, duration: 0.3 }}
-              className="inline-block w-1.5 h-3.5 ml-0.5 bg-accentBlue align-middle rounded-xs"
+              className="inline-block w-1.5 h-3.5 ml-0.5 bg-accentBlue align-middle rounded-none"
             />
           )}
         </p>

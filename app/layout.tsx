@@ -12,11 +12,12 @@ const notoSansMono = Noto_Sans_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Julian Steve Anban | Full Stack Developer & Cybersecurity Enthusiast',
+  title: "Julian Steve Anban's Portfolio",
   description:
     'Portfolio of Julian Steve Anban - Computer Science Student at SRM University, Full Stack Developer, and Cybersecurity Enthusiast. Featuring projects like Flock, AlgoNext, and RegTech Workspace.',
   keywords: [
     'Julian Steve Anban',
+    "Julian Steve Anban's Portfolio",
     'Full Stack Developer',
     'Cybersecurity',
     'SRM University',
@@ -27,16 +28,16 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: 'Julian Steve Anban' }],
   openGraph: {
-    title: 'Julian Steve Anban | Full Stack Developer & Cybersecurity Enthusiast',
+    title: "Julian Steve Anban's Portfolio",
     description:
       'Computer Science Engineering Student specializing in Full Stack, Security, System Design, and Product Engineering.',
     url: 'https://juliansteve.dev',
-    siteName: 'Julian Steve Anban Portfolio',
+    siteName: "Julian Steve Anban's Portfolio",
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Julian Steve Anban | Full Stack Developer & Cybersecurity Enthusiast',
+    title: "Julian Steve Anban's Portfolio",
     description:
       'Computer Science Engineering Student specializing in Full Stack, Security, System Design, and Product Engineering.',
   },

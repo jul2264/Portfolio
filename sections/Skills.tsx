@@ -33,7 +33,7 @@ export function SkillsSection() {
             return (
               <div key={cat.title}>
                 <div className="flex items-center gap-2 mb-5">
-                  <div className="p-1.5 rounded-lg bg-accentBlue/10 text-accentBlue">
+                  <div className="p-1.5 rounded-none bg-accentBlue/10 text-accentBlue">
                     <IconComponent className="w-5 h-5" />
                   </div>
                   <h3 className="text-xl font-bold text-textPrimary">{cat.title}</h3>

@@ -36,7 +36,7 @@ export function Footer() {
           </a>
           <button
             onClick={scrollToTop}
-            className="p-2 rounded-full bg-surface border border-borderSubtle text-accentBlue hover:border-accentBlue hover:scale-110 transition-all ml-2"
+            className="p-2 rounded-none bg-surface border border-borderSubtle text-accentBlue hover:border-accentBlue hover:scale-110 transition-all ml-2"
             aria-label="Back to Top"
             title="Scroll to Top"
           >

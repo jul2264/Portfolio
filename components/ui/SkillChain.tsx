@@ -21,7 +21,7 @@ const skillChainList = [
 export function SkillChain() {
   return (
     <div className="w-full mt-3 overflow-hidden">
-      <div className="w-full bg-surface/85 backdrop-blur-xl border border-accentBlue/30 rounded-2xl py-1.5 px-2 flex items-center shadow-md overflow-hidden">
+      <div className="w-full bg-surface/85 backdrop-blur-xl border border-accentBlue/30 rounded-none py-1.5 px-2 flex items-center shadow-md overflow-hidden">
         {/* Infinite Marquee Track */}
         <motion.div
           animate={{ x: ['0%', '-50%'] }}
@@ -39,7 +39,7 @@ export function SkillChain() {
             return (
               <div
                 key={`${skill.name}-${index}`}
-                className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface/90 border border-borderSubtle/80 shadow-xs shrink-0 hover:border-accentBlue transition-colors group cursor-pointer"
+                className="flex items-center gap-1.5 px-2.5 py-1 rounded-none bg-surface/90 border border-borderSubtle/80 shadow-xs shrink-0 hover:border-accentBlue transition-colors group cursor-pointer"
               >
                 {/* Small Icon */}
                 <div className="w-4 h-4 flex items-center justify-center shrink-0">

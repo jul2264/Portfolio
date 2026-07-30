@@ -43,7 +43,7 @@ export function ContactSection() {
 
   const contactCards = [
     {
-      icon: <Mail className="w-4 h-4" />,
+      icon: <Mail className="w-6 h-6" />,
       label: 'Mail',
       value: resumeData.personal.email,
       href: `mailto:${resumeData.personal.email}`,
@@ -52,7 +52,7 @@ export function ContactSection() {
       extra: (
         <button
           onClick={(e) => { e.preventDefault(); handleCopyEmail(); }}
-          className="absolute top-2 right-2 p-1 rounded-md bg-surface/80 border border-borderSubtle text-textMuted hover:text-accentGreen hover:border-accentGreen transition-colors flex items-center gap-1 text-[9px] font-mono"
+          className="absolute top-2 right-2 p-1 rounded-none bg-surface/80 border border-borderSubtle text-textMuted hover:text-accentGreen hover:border-accentGreen transition-colors flex items-center gap-1 text-[9px] font-mono"
           title="Copy Email"
         >
           {copiedEmail ? <Check className="w-2.5 h-2.5 text-accentGreen" /> : <Copy className="w-2.5 h-2.5" />}
@@ -61,7 +61,7 @@ export function ContactSection() {
       ),
     },
     {
-      icon: <LinkedinIcon className="w-4 h-4" />,
+      icon: <LinkedinIcon className="w-6 h-6" />,
       label: 'LinkedIn',
       value: 'juliansteve',
       href: resumeData.personal.linkedin,
@@ -69,7 +69,7 @@ export function ContactSection() {
       accent: 'blue' as const,
     },
     {
-      icon: <GithubIcon className="w-4 h-4" />,
+      icon: <GithubIcon className="w-6 h-6" />,
       label: 'GitHub',
       value: 'jul2264',
       href: resumeData.personal.github,
@@ -77,7 +77,7 @@ export function ContactSection() {
       accent: 'blue' as const,
     },
     {
-      icon: <Phone className="w-4 h-4" />,
+      icon: <Phone className="w-6 h-6" />,
       label: 'Phone No.',
       value: `+91 ${resumeData.personal.phone}`,
       href: `tel:+91${resumeData.personal.phone}`,
@@ -149,13 +149,13 @@ export function ContactSection() {
                   viewport={{ once: false }}
                   transition={{ delay: idx * 0.07, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                   whileHover={{ scale: 1.03, y: -2 }}
-                  className={`relative w-[145px] h-[115px] sm:w-[165px] sm:h-[130px] rounded-xl bg-surface/85 backdrop-blur-xl border border-white/20 overflow-hidden p-4 shadow-lg ${styles.hoverBorder} transition-all duration-300 flex flex-col justify-between group cursor-pointer`}
+                  className={`relative w-[145px] h-[115px] sm:w-[165px] sm:h-[130px] rounded-none bg-surface/85 backdrop-blur-xl border border-white/20 overflow-hidden p-4 shadow-lg ${styles.hoverBorder} transition-all duration-300 flex flex-col justify-between group cursor-pointer`}
                 >
                   {/* Top Accent Line */}
                   <div className={`absolute top-0 left-0 right-0 h-[1px] ${styles.topLine}`} />
 
                   {/* Icon */}
-                  <div className={`p-2 rounded-lg border w-fit ${styles.iconBg} transition-colors`}>
+                  <div className={`p-3 rounded-none border w-fit ${styles.iconBg} transition-colors`}>
                     {card.icon}
                   </div>
 
@@ -178,7 +178,7 @@ export function ContactSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: false }}
             transition={{ delay: 0.15, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            className="relative rounded-xl bg-surface/85 backdrop-blur-xl border border-accentGreen/20 overflow-hidden p-5 sm:p-6 shadow-xl hover:border-accentGreen/50 transition-colors duration-300"
+            className="relative rounded-none bg-surface/85 backdrop-blur-xl border border-accentGreen/20 overflow-hidden p-5 sm:p-6 shadow-xl hover:border-accentGreen/50 transition-colors duration-300"
           >
             {/* Top Green Accent Line */}
             <div className="absolute top-0 left-0 right-0 h-[1px] bg-accentGreen/30" />
@@ -206,7 +206,7 @@ export function ContactSection() {
                       value={formState.name}
                       onChange={(e) => setFormState({ ...formState, name: e.target.value })}
                       placeholder="Jane Doe"
-                      className="w-full px-3 py-2.5 rounded-lg bg-surface/90 border border-borderSubtle focus:border-accentBlue text-textPrimary text-xs placeholder:text-textMuted/50 focus:outline-none transition-colors"
+                      className="w-full px-3 py-2.5 rounded-none bg-surface/90 border border-borderSubtle focus:border-accentBlue text-textPrimary text-xs placeholder:text-textMuted/50 focus:outline-none transition-colors"
                     />
                   </motion.div>
                   <motion.div
@@ -222,7 +222,7 @@ export function ContactSection() {
                       value={formState.email}
                       onChange={(e) => setFormState({ ...formState, email: e.target.value })}
                       placeholder="jane@example.com"
-                      className="w-full px-3 py-2.5 rounded-lg bg-surface/90 border border-borderSubtle focus:border-accentBlue text-textPrimary text-xs placeholder:text-textMuted/50 focus:outline-none transition-colors"
+                      className="w-full px-3 py-2.5 rounded-none bg-surface/90 border border-borderSubtle focus:border-accentBlue text-textPrimary text-xs placeholder:text-textMuted/50 focus:outline-none transition-colors"
                     />
                   </motion.div>
                 </div>
@@ -241,7 +241,7 @@ export function ContactSection() {
                     value={formState.subject}
                     onChange={(e) => setFormState({ ...formState, subject: e.target.value })}
                     placeholder="Software Engineering Inquiry"
-                    className="w-full px-3 py-2.5 rounded-lg bg-surface/90 border border-borderSubtle focus:border-accentBlue text-textPrimary text-xs placeholder:text-textMuted/50 focus:outline-none transition-colors"
+                    className="w-full px-3 py-2.5 rounded-none bg-surface/90 border border-borderSubtle focus:border-accentBlue text-textPrimary text-xs placeholder:text-textMuted/50 focus:outline-none transition-colors"
                   />
                 </motion.div>
 
@@ -259,7 +259,7 @@ export function ContactSection() {
                     value={formState.message}
                     onChange={(e) => setFormState({ ...formState, message: e.target.value })}
                     placeholder="Hi Julian, I'd like to discuss an engineering role..."
-                    className="w-full px-3 py-2.5 rounded-lg bg-surface/90 border border-borderSubtle focus:border-accentBlue text-textPrimary text-xs placeholder:text-textMuted/50 focus:outline-none transition-colors resize-none"
+                    className="w-full px-3 py-2.5 rounded-none bg-surface/90 border border-borderSubtle focus:border-accentBlue text-textPrimary text-xs placeholder:text-textMuted/50 focus:outline-none transition-colors resize-none"
                   />
                 </motion.div>
 
@@ -272,7 +272,7 @@ export function ContactSection() {
                   transition={{ delay: 0.4, duration: 0.4 }}
                   whileHover={{ scale: 1.01 }}
                   whileTap={{ scale: 0.98 }}
-                  className={`w-full py-3 rounded-lg font-bold transition-all shadow-lg flex items-center justify-center gap-2 text-xs ${buttonThemeClasses}`}
+                  className={`w-full py-3 rounded-none font-bold transition-all shadow-lg flex items-center justify-center gap-2 text-xs ${buttonThemeClasses}`}
                 >
                   <Send className="w-3.5 h-3.5" /> Send Message
                 </motion.button>
