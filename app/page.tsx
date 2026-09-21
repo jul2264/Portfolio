@@ -1,6 +1,7 @@
 import { DynamicBackground } from '@/components/canvas/DynamicBackground';
 import { LoadingScreen } from '@/components/ui/LoadingScreen';
 import { Navbar } from '@/components/ui/Navbar';
+import { SectionWrapper } from '@/components/ui/SectionWrapper';
 import { HeroSection } from '@/sections/Hero';
 import { EducationSection } from '@/sections/Education';
 import { ExperienceSection } from '@/sections/Experience';
@@ -8,6 +9,7 @@ import { ProjectsSection } from '@/sections/Projects';
 import { SkillsSection } from '@/sections/Skills';
 import { LeadershipSection } from '@/sections/Leadership';
 import { ContactSection } from '@/sections/Contact';
+import { Footer } from '@/sections/Footer';
 
 export default function Home() {
   return (
@@ -22,25 +24,43 @@ export default function Home() {
       <Navbar />
 
       {/* Hero & About Me Section */}
-      <HeroSection />
+      <SectionWrapper accent="blue">
+        <HeroSection />
+      </SectionWrapper>
 
       {/* Technical Skills Section */}
-      <SkillsSection />
+      <SectionWrapper accent="green">
+        <SkillsSection />
+      </SectionWrapper>
 
       {/* Education Section */}
-      <EducationSection />
+      <SectionWrapper accent="blue">
+        <EducationSection />
+      </SectionWrapper>
 
       {/* Cybersecurity Experience */}
-      <ExperienceSection />
+      <SectionWrapper accent="green">
+        <ExperienceSection />
+      </SectionWrapper>
 
       {/* Featured Projects */}
-      <ProjectsSection />
+      <SectionWrapper accent="blue">
+        <ProjectsSection />
+      </SectionWrapper>
 
       {/* Leadership & Creative Work */}
-      <LeadershipSection />
+      <SectionWrapper accent="green">
+        <LeadershipSection />
+      </SectionWrapper>
 
       {/* Contact Section */}
-      <ContactSection />
+      <SectionWrapper accent="blue">
+        <ContactSection />
+      </SectionWrapper>
+
+      {/* Footer */}
+      <Footer />
     </main>
   );
 }
+

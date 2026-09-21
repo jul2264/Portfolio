@@ -53,7 +53,3 @@ body {
   font-optical-sizing: auto;
 }
 
-/* Custom site-wide cursor using the provided SVG */
-html, body, a, button, input, textarea, select {
-  cursor: url('/cursor.svg') 18 18, auto;
-}
