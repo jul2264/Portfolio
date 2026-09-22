@@ -15,7 +15,7 @@ import {
 import { GithubIcon, LinkedinIcon } from '@/components/ui/SocialIcons';
 import { SkillChain } from '@/components/ui/SkillChain';
 import { TypewriterText } from '@/components/ui/TypewriterText';
-import { PixelDissolvePhoto } from '@/components/ui/PixelDissolvePhoto';
+import { InteractiveAvatarPhoto } from '@/components/ui/InteractiveAvatarPhoto';
 
 const summaryParagraphs = [
   "I'm a Computer Science undergraduate at SRM University with hands-on experience across full-stack development and cyber security. I've architected real-time, geo-spatial systems at scale — including a social platform built on Go, Next.js, PostgreSQL/PostGIS, and Redis with horizontal WebSocket scaling — alongside projects integrating sandboxed code execution, async task pipelines, and modern auth/search infrastructure (Django, Celery, Clerk, Meilisearch).",
@@ -46,21 +46,13 @@ export function HeroSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-7 items-center relative z-10">
           {/* LEFT COLUMN: Julian Real Photo & Skill Chain Below */}
           <div className="lg:col-span-4 flex flex-col items-center justify-center">
-            {/* Photo Container Frame */}
-            <div className="relative w-full max-w-[250px] sm:max-w-[280px] lg:max-w-full aspect-[4/4.2] rounded-none overflow-hidden border-2 border-borderSubtle bg-surface/90 shadow-xl group">
-              <PixelDissolvePhoto
-                src="/julian_photo.jpg"
-                alt="Julian Steve Anban"
-                className="w-full h-full group-hover:scale-105 transition-transform duration-700"
-              />
-
-              {/* Bottom Name Box - Only Julian Steve Anban */}
-              <div className="absolute bottom-2.5 left-2.5 right-2.5 p-2 rounded-none bg-surface/90 backdrop-blur-md border border-borderSubtle/80 flex items-center justify-center">
-                <h3 className="text-xs sm:text-sm font-bold text-textPrimary text-center">
-                  Julian Steve Anban
-                </h3>
-              </div>
-            </div>
+            {/* Interactive 3D Photo / Talking Avatar Flip Card */}
+            <InteractiveAvatarPhoto
+              photoSrc="/julian_photo.jpg"
+              avatarSrc="/julian_avatar.jpg"
+              alt="Julian Steve Anban"
+              className="mb-0"
+            />
 
             {/* SKILL CHAIN (Aligned directly BELOW the photo image) */}
             <SkillChain />
