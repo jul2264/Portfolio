@@ -1,19 +1,24 @@
 {
   "personal": {
     "name": "Julian Steve Anban",
-    "title": "Computer Science Student | Full Stack Developer | Cybersecurity Enthusiast",
+    "title": "Computer Science Undergraduate & Researcher",
     "phone": "8217288418",
     "email": "juliansteve.anban@gmail.com",
     "linkedin": "https://www.linkedin.com/in/juliansteve",
     "github": "https://github.com/jul2264",
     "location": "Chennai, Tamil Nadu / Bangalore, Karnataka",
-    "specializations": ["Full Stack", "Security", "System Design", "Product Engineering"]
+    "specializations": [
+      "Full Stack",
+      "Security",
+      "System Design",
+      "Product Engineering"
+    ],
+    "resumeUrl": "/Julian_Steve_Anban_Resume.pdf"
   },
   "education": [
     {
       "institution": "SRM University",
       "degree": "Bachelor of Technology in Computer Science",
-      "syllabus": "Computer Science & Engineering",
       "grade": "CGPA: 8.66",
       "period": "Aug. 2024 – May 2028",
       "location": "Chennai, Tamil Nadu",
@@ -40,16 +45,43 @@
   ],
   "experience": [
     {
+      "role": "Undergraduate Researcher",
+      "company": "SRM University",
+      "location": "Chennai, Tamil Nadu",
+      "period": "September 2026 – Present",
+      "highlights": [
+        "Contribute to a real-time credit-default prediction and early-warning framework for buy now, pay later (BNPL) micro-lending.",
+        "Focus on exploratory data analysis, behavioral signals, and data preprocessing."
+      ],
+      "tools": []
+    },
+    {
+      "role": "Software Engineer Intern",
+      "company": "YugaYatra Retail (Remote)",
+      "location": "Bangalore, Karnataka",
+      "period": "July 2026 – September 2026",
+      "highlights": [
+        "Helped implement user workflows and test the Super Admin Panel for Sahapati.",
+        "Resolved data synchronization issues between Sevikaa’s admin panel and database, improving consistency of updates and system logs."
+      ],
+      "tools": []
+    },
+    {
       "role": "Cyber Security Intern",
       "company": "Talenciaglobal",
       "location": "Chennai, Tamil Nadu",
       "period": "December 2025 – March 2026",
       "highlights": [
-        "Contributed to the development of a cyber security product and performing vulnerability identification and security assessment across the platform",
-        "Mapped identified vulnerabilities to OWASP standards and maintained structured security assessment documentation",
-        "Performed basic reverse engineering and binary analysis using Radare2, packet-level traffic analysis using Wireshark, and used SQLMap to assist in vulnerability identification"
+        "Contributed to a cybersecurity product and performed vulnerability testing and security assessments.",
+        "Mapped findings to OWASP standards and documented the assessments.",
+        "Used Radare2 for basic reverse engineering, Wireshark for packet analysis, and SQLMap for vulnerability identification."
       ],
-      "tools": ["OWASP", "Radare2", "Wireshark", "SQLMap"]
+      "tools": [
+        "OWASP",
+        "Radare2",
+        "Wireshark",
+        "SQLMap"
+      ]
     }
   ],
   "leadership": [
@@ -71,5 +103,9 @@
         "Spearheaded design of promotional assets for flagship college events (Internship Fair 3.0, Prayatna), coordinating with cross-functional teams under deadline to ensure consistent visual communication"
       ]
     }
+  ],
+  "achievements": [
+    "SRMJEE Scholarship Rank: 315",
+    "First place at the GCICI Hackathon by JA-Assure"
   ]
 }

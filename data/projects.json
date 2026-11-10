@@ -1,52 +1,108 @@
-[
-  {
-    "id": "flock",
-    "title": "Flock",
-    "subtitle": "Real-time, Geo-Spatial Social Platform",
-    "period": "July 2026 – Present",
-    "techStack": ["Go", "Next.js", "React", "PostgreSQL", "PostGIS", "Redis", "Meilisearch", "Docker", "Clerk", "Google Maps API"],
-    "summary": "Architected a full-stack, real-time social platform from scratch featuring real-time presence, geo-spatial query engine, and pub/sub WebSocket replicas.",
-    "keyFeatures": [
-      "Built a Go REST API & dedicated WebSocket server for live presence & RSVP updates with Redis pub/sub for horizontal scaling across replicas.",
-      "Designed geo-spatial data layer using PostgreSQL + PostGIS with a quantized-grid Redis caching strategy to keep location queries fast at scale.",
-      "Integrated Clerk for authentication, Google Maps Platform API for location search/geocoding, and Meilisearch for full-text search across communities and events."
-    ],
-    "architectureSummary": "Go REST API & WebSocket Server ↔ Redis Pub/Sub Cache ↔ PostgreSQL/PostGIS ↔ Meilisearch Engine",
-    "github": "https://github.com/jul2264/Flock",
-    "demo": "#",
-    "accent": "blue"
-  },
-  {
-    "id": "algonext",
-    "title": "AlgoNext",
-    "subtitle": "In-Browser Code Execution & Online Judge Platform",
-    "period": "May 2026 – June 2026",
-    "techStack": ["React", "TypeScript", "D3.js", "Django REST Framework", "PostgreSQL", "Redis", "Celery", "Clerk", "Monaco Editor", "Judge0", "Node.js"],
-    "summary": "Full-stack competitive coding platform with sandboxed multi-language code execution and algorithm visualizations.",
-    "keyFeatures": [
-      "Implemented an in-browser code editor using Monaco Editor, integrated with Judge0 for sandboxed multi-language code execution and automated judging.",
-      "Designed a Django REST Framework backend with Celery and Redis for async task processing, PostgreSQL (Supabase) for storage, and Node.js for build scripts.",
-      "Implemented Clerk for authentication; deployed frontend on Vercel and backend on Render."
-    ],
-    "architectureSummary": "Monaco Editor (Next.js) ↔ Django REST / Celery / Redis ↔ Judge0 Sandbox ↔ Supabase DB",
-    "github": "https://github.com/jul2264/AlgoNext",
-    "demo": "#",
-    "accent": "green"
-  },
-  {
-    "id": "regtech",
-    "title": "RegTech Investigation Workspace",
-    "subtitle": "AI-Assisted Financial Fraud & KYC Audit System",
-    "period": "February 2026 – March 2026",
-    "techStack": ["Python", "Streamlit", "Pandas", "Scikit-Learn", "Data Pipelines"],
-    "summary": "Synthetic data pipeline and AI reasoning audit trail system for regulator-facing financial fraud investigations.",
-    "keyFeatures": [
-      "Developed a synthetic data pipeline to generate KYC profiles and transaction logs, with detection logic for structuring and rapid fund movement patterns.",
-      "Designed an audit trail system that logs each step of the AI's reasoning, supporting human-in-the-loop review and transparency for regulator-facing output."
-    ],
-    "architectureSummary": "Synthetic Data Generator → Fraud Pattern Detection Engine → Streamlit Audit UI → Regulatory Log Output",
-    "github": "https://github.com/jul2264/RegTech-Workspace",
-    "demo": "#",
-    "accent": "blue"
-  }
-]
+{
+  "featured": [
+    {
+      "id": "flock",
+      "title": "Flock",
+      "subtitle": "Real-time platform for local communities",
+      "period": "July 2026 – Present",
+      "summary": "Helps people discover nearby communities and organize in-person meetups.",
+      "techStack": [
+        "Go",
+        "Next.js",
+        "React",
+        "PostgreSQL",
+        "PostGIS",
+        "Redis",
+        "Meilisearch",
+        "Docker",
+        "Clerk",
+        "Google Maps API"
+      ],
+      "keyFeatures": [
+        "Built a Go REST API & dedicated WebSocket server for live presence & RSVP updates with Redis pub/sub for horizontal scaling across replicas.",
+        "Designed geo-spatial data layer using PostgreSQL + PostGIS with a quantized-grid Redis caching strategy to keep location queries fast at scale.",
+        "Integrated Clerk for authentication, Google Maps Platform API for location search/geocoding, and Meilisearch for full-text search across communities and events."
+      ],
+      "github": "https://github.com/jul2264/Flock"
+    },
+    {
+      "id": "paylio",
+      "title": "Paylio",
+      "subtitle": "Personal finance and portfolio tracking",
+      "period": "May 2026",
+      "summary": "Combines investment holdings and bank transactions in a single finance workspace.",
+      "techStack": [
+        "Python",
+        "Pandas",
+        "JavaScript"
+      ],
+      "keyFeatures": [
+        "Integrated Zerodha Kite Connect to sync holdings, encrypt stored broker credentials, and generate daily portfolio snapshots.",
+        "Built three-stage transaction categorization with learned merchant mappings, keyword rules, and an asynchronous local LLM fallback. Added CSV statement import and account-level duplicate prevention.",
+        "Built a test suite across 28 files covering imports, categorization, budgets, APIs, and integrations."
+      ]
+    },
+    {
+      "id": "algonext",
+      "title": "AlgoNext",
+      "subtitle": "Browser-based coding and online judge",
+      "period": "May 2026 – June 2026",
+      "summary": "Lets students run code in a sandbox and explore algorithm visualizations.",
+      "techStack": [
+        "React",
+        "TypeScript",
+        "D3.js",
+        "Django REST Framework",
+        "PostgreSQL",
+        "Redis",
+        "Celery",
+        "Clerk",
+        "Monaco Editor",
+        "Judge0",
+        "Node.js"
+      ],
+      "keyFeatures": [
+        "Implemented an in-browser code editor using Monaco Editor, integrated with Judge0 for sandboxed multi-language code execution and automated judging.",
+        "Designed a Django REST Framework backend with Celery and Redis for async task processing, PostgreSQL (Supabase) for storage, and Node.js for build scripts.",
+        "Implemented Clerk for authentication; deployed frontend on Vercel and backend on Render."
+      ],
+      "github": "https://github.com/jul2264/AlgoNext"
+    },
+    {
+      "id": "regtech",
+      "title": "RegTech Investigation Workspace",
+      "subtitle": "AI-assisted financial fraud investigation",
+      "period": "February 2026 – March 2026",
+      "summary": "A Streamlit workspace for reviewing synthetic KYC and transaction data with an auditable trail.",
+      "techStack": [
+        "Python",
+        "Streamlit"
+      ],
+      "keyFeatures": [
+        "Built a synthetic-data pipeline for KYC profiles and transaction logs, with detection logic in progress for structuring and rapid fund movement.",
+        "Designed a reasoning audit trail to support human review of regulator-facing output."
+      ],
+      "github": "https://github.com/jul2264/RegTech-Investigation-Workspace"
+    }
+  ],
+  "github": [
+    {
+      "id": "climatrix",
+      "title": "Climatrix",
+      "summary": "Weather-aware truck routing.",
+      "github": "https://github.com/jul2264/Climatrix"
+    },
+    {
+      "id": "zipshop",
+      "title": "ZipShop",
+      "summary": "E-commerce management with transaction tracking and inventory integrity.",
+      "github": "https://github.com/jul2264/ZipShop"
+    },
+    {
+      "id": "joblytics",
+      "title": "Joblytics",
+      "summary": "Web scraping for job search.",
+      "github": "https://github.com/jul2264/Joblytics"
+    }
+  ]
+}

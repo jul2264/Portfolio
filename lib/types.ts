@@ -7,6 +7,7 @@ export interface PersonalData {
   github: string;
   location: string;
   specializations: string[];
+  resumeUrl: string;
 }
 
 export interface EducationItem {
@@ -41,28 +42,30 @@ export interface ResumeData {
   education: EducationItem[];
   experience: ExperienceItem[];
   leadership: LeadershipItem[];
+  achievements: string[];
 }
 
-export interface ProjectItem {
-  id?: string;
+interface ProjectSummary {
+  id: string;
   title: string;
-  subtitle?: string;
-  category?: string;
-  shortDescription?: string;
-  fullDescription?: string;
-  summary?: string;
+  summary: string;
+}
+
+interface FeaturedProject extends ProjectSummary {
+  subtitle: string;
+  period: string;
   techStack: string[];
-  highlights?: string[];
-  keyFeatures?: string[];
-  architectureSummary?: string;
-  metrics?: string;
-  githubUrl?: string;
+  keyFeatures: string[];
   github?: string;
-  liveUrl?: string;
-  demo?: string;
-  featured?: boolean;
-  accent?: 'blue' | 'green' | 'none';
-  period?: string;
+}
+
+interface GitHubProject extends ProjectSummary {
+  github: string;
+}
+
+export interface ProjectsData {
+  featured: FeaturedProject[];
+  github: GitHubProject[];
 }
 
 export interface SkillItem {
@@ -75,13 +78,4 @@ export interface SkillItem {
 export interface SkillCategory {
   category: string;
   skills: string[];
-}
-
-export interface SkillsData {
-  languages?: SkillItem[];
-  frameworks?: SkillItem[];
-  developerTools?: SkillItem[];
-  securityTools?: SkillItem[];
-  technicalSkills?: SkillCategory[];
-  cybersecurityTools?: SkillCategory[];
 }
